@@ -17,7 +17,7 @@ class PlayerSpec extends AnyFlatSpec with Matchers {
   }
 
   it should "have a grid on which they place ships" in {
-    Player.create().grid shouldBe Grid()
+    Player.create().grid shouldBe Grid.create()
   }
 }
 

@@ -10,6 +10,6 @@ object Player {
       Submarine,
       Cruiser,
       Destroyer
-    ), Grid()
+    ), Grid.create()
   )
 }
