@@ -45,6 +45,7 @@ Still want more info on the game? Check out this [step-by-step guide](https://ww
 
 * How will you model the Grid? Does it need to be multidimensional?
 * Can you make the language enforce correct (programmatic) inputs into the core domain?
+* In what way can you leverage datastructures to your advantage?
 
 ## Bonus Challenges 🥵
 
