@@ -4,5 +4,5 @@ object Game {
   val playerOne: Player = Player.create()
   val playerTwo: Player = Player.create()
 
-  def arrange(player: Player, ship: Ship): Unit = println("arrange")
+  def arrange(player: Player, ship: Ship): Unit = println(s"arrange $player, $ship")
 }

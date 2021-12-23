@@ -10,6 +10,6 @@ class GameSpec extends AnyFlatSpec with Matchers {
   }
 
   "arrange" should "allow player one to arrange his ships" in {
-    Game.arrange(Game.playerOne, AircraftCarrier)
+    Game arrange(Game.playerOne, AircraftCarrier)
   }
 }

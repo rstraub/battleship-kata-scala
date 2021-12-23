@@ -2,12 +2,12 @@ package nl.codecraftr.scala.battleship
 
 sealed trait Ship
 
-object AircraftCarrier extends Ship
+case object AircraftCarrier extends Ship
 
-object Battleship extends Ship
+case object Battleship extends Ship
 
-object Submarine extends Ship
+case object Submarine extends Ship
 
-object Cruiser extends Ship
+case object Cruiser extends Ship
 
-object Destroyer extends Ship
+case object Destroyer extends Ship
