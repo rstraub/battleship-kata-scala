@@ -11,8 +11,10 @@ class GridSpec extends AnyFlatSpec with Matchers {
   }
 
   "columns" should "run from A to J" in {
-    val expected = Columns.values
+    grid.squares.map(_.column) shouldBe Columns.values
+  }
 
-    grid.squares.map(_.column) shouldBe expected
+  "rows" should "run from 1 to 10" in {
+    grid.squares.map(_.row) shouldBe Rows.values
   }
 }

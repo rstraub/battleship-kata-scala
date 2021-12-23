@@ -7,6 +7,6 @@ object Grid {
 
   private def allSquares() = for {
     c <- Columns.values.toList
-    r <- 1 until 11
+    r <- Rows.values.toList
   } yield Square(r, c)
 }
