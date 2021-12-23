@@ -1,11 +1,13 @@
 package nl.codecraftr.scala.battleship
 
-object AircraftCarrier
+trait Ship
 
-object Battleship
+object AircraftCarrier extends Ship
 
-object Submarine
+object Battleship extends Ship
 
-object Cruiser
+object Submarine extends Ship
 
-object Destroyer
+object Cruiser extends Ship
+
+object Destroyer extends Ship
