@@ -1,7 +1,5 @@
 import Dependencies._
 
-val scala3Version = "2.13.7"
-
 lazy val root = project
   .in(file("."))
   .settings(
@@ -12,3 +10,4 @@ lazy val root = project
 
     libraryDependencies += scalaTest % Test
   )
+val scala3Version = "3.1.0"
