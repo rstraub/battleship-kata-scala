@@ -7,15 +7,12 @@ class GridSpec extends AnyFlatSpec with Matchers {
   private val grid = Grid.create()
 
   "grid" should "have a size of ten by ten squares" in {
-    grid.squares.flatten should have size 100
+    grid.squares should have size 100
   }
 
-  "x-axis" should "run from A to J" in {
-    val squares = for {
-      row <- List()
-      column <- List()
-    } yield Square(row, column)
+  "columns" should "run from A to J" in {
+    val expected = Columns.values
 
-    grid.squares shouldBe squares
+    grid.squares.map(_.column) shouldBe expected
   }
 }

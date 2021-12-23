@@ -1,11 +1,12 @@
 package nl.codecraftr.scala.battleship
 
-case class Grid(squares: List[List[Any]])
+case class Grid(squares: Set[Square])
 
 object Grid {
-  private val xAxis = List("A", "B", "C", "D", "E", "F", "G", "H", "I", "J")
+  def create(): Grid = Grid(allSquares().toSet)
 
-  def create(): Grid = Grid(
-    List.fill(10)(xAxis)
-  )
+  private def allSquares() = for {
+    c <- Columns.values.toList
+    r <- 1 until 11
+  } yield Square(r, c)
 }
