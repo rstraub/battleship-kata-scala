@@ -11,9 +11,11 @@ class GridSpec extends AnyFlatSpec with Matchers {
   }
 
   "x-axis" should "run from A to J" in {
-    val rows = List()
-    val columns = List()
-    val squares = rows.flatMap(r => columns.map(c => Square(r, c)))
+    val squares = for {
+      row <- List()
+      column <- List()
+    } yield Square(row, column)
+
     grid.squares shouldBe squares
   }
 }
