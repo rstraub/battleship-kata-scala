@@ -1,5 +1,6 @@
 package nl.codecraftr.scala.battleship
 
-@main def battleship(): Unit =
+object Main extends App {
   println("lets play")
+}
 

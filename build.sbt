@@ -6,8 +6,8 @@ lazy val root = project
     name := "Battleship Kata",
     version := "0.1.0-SNAPSHOT",
 
-    scalaVersion := scala3Version,
+    scalaVersion := projectScalaVersion,
 
     libraryDependencies += scalaTest % Test
   )
-val scala3Version = "3.1.0"
+val projectScalaVersion = "2.13.7"
