@@ -1,6 +1,6 @@
 package nl.codecraftr.scala.battleship
 
-trait Ship
+sealed trait Ship
 
 object AircraftCarrier extends Ship
 

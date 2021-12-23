@@ -8,4 +8,8 @@ class GameSpec extends AnyFlatSpec with Matchers {
     Game.player1 shouldBe Player.create()
     Game.player2 shouldBe Player.create()
   }
+
+  "arrange" should "allow player one to arrange his ships" in {
+    Game.arrange(Game.player1, AircraftCarrier)
+  }
 }
