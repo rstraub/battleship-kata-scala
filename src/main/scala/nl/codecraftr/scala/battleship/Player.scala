@@ -11,8 +11,7 @@ case class Player(ships: Set[Ship], grid: Grid) {
 
   private def replace(ship: Ship, other: Ship) = ships - ship + other
 
-  def arrange(ship: Ship): Player =
-    copy(ships = this.ships + ship)
+  def arrange(ship: Ship): Player = copy(ships + ship)
 
   def fleetSunk: Boolean = ships.nonEmpty && ships.forall(_.isSunk)
 }
