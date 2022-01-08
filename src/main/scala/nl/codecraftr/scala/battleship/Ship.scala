@@ -1,9 +1,7 @@
 package nl.codecraftr.scala.battleship
 
-case class Ship(squares: Set[Square]) {
-  val hits: Set[Square] = Set()
-
-  def hit(square: Square): Ship = this
+case class Ship(squares: Set[Square], hits: Set[Square] = Set()) {
+  def hit(square: Square): Ship = copy(hits = this.hits + square)
 }
 
 object Ship {
