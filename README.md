@@ -1,3 +1,5 @@
+![Continuous Integration](https://github.com/rstraub/battleship-kata-scala/actions/workflows/scala.yml/badge.svg)
+
 ![Battleship Game](battleship_game.webp)
 
 # Battleship CodeKata 🚢💥
