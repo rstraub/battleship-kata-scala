@@ -10,4 +10,4 @@ case object Submarine extends Ship
 
 case object Cruiser extends Ship
 
-case object Destroyer extends Ship
+case class Destroyer(s1: String, s2: String) extends Ship

@@ -17,9 +17,9 @@ class PlayerSpec extends AnyFlatSpec with Matchers {
   "arrange" should "place the ship in new player" in {
     val player = Player.create()
 
-    val result = player.arrange(Destroyer, List("B1", "B2"))
+    val result = player.arrange(Destroyer("B1", "B2"))
 
-    result.ships should contain(Destroyer)
+    result.ships should contain(Destroyer("B1", "B2"))
   }
 }
 

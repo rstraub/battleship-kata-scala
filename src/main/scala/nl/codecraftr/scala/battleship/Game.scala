@@ -5,6 +5,6 @@ object Game {
 }
 
 case class Game(playerOne: Player, playerTwo: Player) {
-  def arrange(player: Player, ship: Ship, coords: List[String]): Game =
-    Game(player.arrange(ship, coords), playerTwo)
+  def arrange(player: Player, ship: Ship): Game =
+    Game(player.arrange(ship), playerTwo)
 }
