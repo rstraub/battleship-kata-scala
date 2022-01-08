@@ -47,13 +47,17 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   }
 
   "hit" should "register hit" in {
-    val result = ship hit b1
-    result.hits should contain(b1)
+    val result = ship hit b1 hit b2
+    result.hits shouldBe Set(b1, b2)
   }
 
   it should "should be sunk given all squares are hit" in {
-
+    val result = ship hit b1 hit b2
+    result.isSunk shouldBe true
   }
 
-  it should "not be sunk otherwise" in {}
+  it should "not be sunk otherwise" in {
+    val result = ship hit b1
+    result.isSunk shouldBe false
+  }
 }
