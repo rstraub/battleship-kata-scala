@@ -21,6 +21,14 @@ class GridSpec extends AnyFlatSpec with Matchers {
     squares.map(_.row) shouldBe Rows.values
   }
 
+  "place" should "place a ship given its placement is valid" in {
+
+  }
+
+  it should "return exception given its placed on another ship" in {
+
+  }
+
   "shot" should "register squares that have been shot" in {
     Grid.create().shot(square).map(_.shots).shouldBe(Right(Set(square)))
   }
