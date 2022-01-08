@@ -26,6 +26,6 @@ class GridSpec extends AnyFlatSpec with Matchers {
   }
 
   it should "return exception given same square is shot twice" in {
-
+    Grid.create().shot(square).shot(square) shouldBe Left(s"Square $square was already shot")
   }
 }
