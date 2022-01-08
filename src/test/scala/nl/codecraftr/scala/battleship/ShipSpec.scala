@@ -3,6 +3,7 @@ package nl.codecraftr.scala.battleship
 import nl.codecraftr.scala.battleship.Columns.B
 import nl.codecraftr.scala.battleship.Rows.{FIVE, FOUR, ONE, THREE, TWO}
 import nl.codecraftr.scala.battleship.Ship._
+import nl.codecraftr.scala.battleship.ShipKinds.{DESTROYER, SUBMARINE}
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
@@ -10,6 +11,7 @@ import org.scalatest.matchers.should.Matchers
 class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   private val b1 = Square(B, ONE)
   private val b2 = Square(B, TWO)
+  private val b3 = Square(B, THREE)
   private var ship: Ship = _
 
   override def beforeEach(): Unit = {
@@ -59,5 +61,10 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   it should "not be sunk otherwise" in {
     val result = ship hit b1
     result.isSunk shouldBe false
+  }
+
+  "kind" should "be announce the kind of ship it is" in {
+    destroyer(b1, b2).kind shouldBe DESTROYER
+    submarine(b1, b2, b3).kind shouldBe SUBMARINE
   }
 }
