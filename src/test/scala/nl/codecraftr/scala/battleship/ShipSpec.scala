@@ -63,7 +63,7 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
     result.isSunk shouldBe false
   }
 
-  "kind" should "be announce the kind of ship it is" in {
+  "kind" should "announce the kind of ship it is" in {
     destroyer(b1, b2).kind shouldBe DESTROYER
     submarine(b1, b2, b3).kind shouldBe SUBMARINE
   }
