@@ -1,7 +1,7 @@
 package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.Columns.B
-import nl.codecraftr.scala.battleship.Rows.{ONE, THREE, TWO}
+import nl.codecraftr.scala.battleship.Rows.{FIVE, FOUR, ONE, THREE, TWO}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -24,7 +24,15 @@ class ShipSpec extends AnyFlatSpec with Matchers {
       .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE)))
   }
 
-  "Battleship" should "take up four squares" in {}
+  "Battleship" should "take up four squares" in {
+    Battleship(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR))
+      .squares
+      .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR)))
+  }
 
-  "AircraftCarrier" should "take up five squares" in {}
+  "AircraftCarrier" should "take up five squares" in {
+    AircraftCarrier(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR), Square(B, FIVE))
+      .squares
+      .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR), Square(B, FIVE)))
+  }
 }
