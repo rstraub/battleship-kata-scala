@@ -24,8 +24,8 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   }
 
   "arrange" should "place the ship in new player with its coordinates" in {
-    val destroyer = Destroyer(Square(B, ONE), Square(B, TWO))
-    val submarine = Submarine(Square(C, ONE), Square(C, TWO), Square(C, THREE))
+    val destroyer = Ship.destroyer(Square(B, ONE), Square(B, TWO))
+    val submarine = Ship.submarine(Square(C, ONE), Square(C, TWO), Square(C, THREE))
 
     val result = player
       .arrange(destroyer)

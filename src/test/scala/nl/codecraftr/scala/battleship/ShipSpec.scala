@@ -2,6 +2,7 @@ package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.Columns.B
 import nl.codecraftr.scala.battleship.Rows.{FIVE, FOUR, ONE, THREE, TWO}
+import nl.codecraftr.scala.battleship.Ship._
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
@@ -12,35 +13,35 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   private var ship: Ship = _
 
   override def beforeEach(): Unit = {
-    ship = Destroyer(b1, b2)
+    ship = destroyer(b1, b2)
   }
 
   "Destroyer" should "take up two squares" in {
-    Destroyer(Square(B, ONE), Square(B, TWO))
+    destroyer(Square(B, ONE), Square(B, TWO))
       .squares
       .shouldBe(Set(Square(B, ONE), Square(B, TWO)))
   }
 
   "Submarine" should "take up three squares" in {
-    Submarine(Square(B, ONE), Square(B, TWO), Square(B, THREE))
+    submarine(Square(B, ONE), Square(B, TWO), Square(B, THREE))
       .squares
       .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE)))
   }
 
   "Cruiser" should "take up three squares" in {
-    Cruiser(Square(B, ONE), Square(B, TWO), Square(B, THREE))
+    cruiser(Square(B, ONE), Square(B, TWO), Square(B, THREE))
       .squares
       .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE)))
   }
 
   "Battleship" should "take up four squares" in {
-    Battleship(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR))
+    battleship(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR))
       .squares
       .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR)))
   }
 
   "AircraftCarrier" should "take up five squares" in {
-    AircraftCarrier(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR), Square(B, FIVE))
+    aircraftCarrier(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR), Square(B, FIVE))
       .squares
       .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR), Square(B, FIVE)))
   }
@@ -50,7 +51,9 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
     result.hits should contain(b1)
   }
 
-  it should "set sunk to true given all square are hit" in {
+  it should "should be sunk given all squares are hit" in {
 
   }
+
+  it should "not be sunk otherwise" in {}
 }
