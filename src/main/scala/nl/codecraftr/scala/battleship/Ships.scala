@@ -1,6 +1,10 @@
 package nl.codecraftr.scala.battleship
 
 sealed trait Ship {
+  val hits: Set[Square] = Set()
+
+  def hit(square: Square): Ship = this
+
   def squares: Set[Square]
 }
 
