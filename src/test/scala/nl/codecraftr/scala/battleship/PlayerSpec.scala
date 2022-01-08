@@ -1,8 +1,8 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.Columns.{B, C}
-import nl.codecraftr.scala.battleship.Rows.{ONE, THREE, TWO}
-import nl.codecraftr.scala.battleship.Ship.destroyer
+import nl.codecraftr.scala.battleship.Columns.{B, C, D}
+import nl.codecraftr.scala.battleship.Rows.{ONE, TEN, THREE, TWO}
+import nl.codecraftr.scala.battleship.Ship.{destroyer, submarine}
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
@@ -11,6 +11,7 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   private val square1: Square = Square(B, ONE)
   private val square2: Square = Square(B, TWO)
   private val aShip = destroyer(square1, square2)
+  private val anotherShip = submarine(Square(D, ONE), Square(D, TWO), Square(D, THREE))
   private var player: Player = _
 
   override def beforeEach(): Unit = {
@@ -41,6 +42,20 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
     )
   }
 
+  "shoot" should "register hit on a ship given correct square" in {
+    player = player arrange aShip
+
+    val result = player shot square1
+
+    result.ships.flatMap(_.hits) should have size 1
+  }
+
+  it should "not register hit given incorrect square" in {
+    player = player arrange aShip
+
+    player shot Square(C, TEN) shouldBe player
+  }
+
   "fleetSunk" should "return false given ships left" in {
     player.arrange(aShip).fleetSunk shouldBe false
   }
@@ -53,5 +68,6 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   it should "return false given no ships" in {
     player.fleetSunk shouldBe false
   }
+
 }
 
