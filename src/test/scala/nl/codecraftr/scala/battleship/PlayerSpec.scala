@@ -43,10 +43,12 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   }
 
   "shoot" should "register hit on a ship given correct square" in {
-    player = player arrange aShip
+    player = player arrange aShip arrange anotherShip
 
     val result = player shot square1
 
+    result.ships should have size 2
+    result.ships should contain(anotherShip)
     result.ships.flatMap(_.hits) should have size 1
   }
 

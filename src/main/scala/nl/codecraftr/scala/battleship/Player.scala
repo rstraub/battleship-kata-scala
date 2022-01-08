@@ -1,14 +1,15 @@
 package nl.codecraftr.scala.battleship
 
 case class Player(ships: Set[Ship], grid: Grid) {
-  def shot(target: Square): Player = {
+  def shot(target: Square): Player =
     findShip(target)
-      .map(_.hit(target))
-      .map(s => copy(ships = Set(s)))
+      .map(s => replace(s, s.hit(target)))
+      .map(copy(_))
       .getOrElse(this)
-  }
 
   private def findShip(target: Square) = ships.find(_.squares.contains(target))
+
+  private def replace(ship: Ship, other: Ship) = ships - ship + other
 
   def arrange(ship: Ship): Player =
     copy(ships = this.ships + ship)
