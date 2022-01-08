@@ -63,8 +63,11 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   }
 
   it should "return true given all ships are sunk" in {
-    val sunkShip = aShip.hit(square1).hit(square2)
-    player.arrange(sunkShip).fleetSunk shouldBe true
+    player
+      .arrange(aShip)
+      .shot(square1)
+      .shot(square2)
+      .fleetSunk shouldBe true
   }
 
   it should "return false given no ships" in {
