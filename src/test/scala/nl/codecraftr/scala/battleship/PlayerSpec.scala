@@ -21,10 +21,15 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
     player.grid shouldBe Grid.create()
   }
 
-  "arrange" should "place the ship in new player" in {
-    val result = player.arrange(Destroyer("B1", "B2"))
+  "arrange" should "place the ship in new player with its coordinates" in {
+    val result = player
+      .arrange(Destroyer("B1", "B2"))
+      .arrange(Submarine("C1", "C2", "C3"))
 
-    result.ships should contain(Destroyer("B1", "B2"))
+    result.ships should contain allOf(
+      Destroyer("B1", "B2"),
+      Submarine("C1", "C2", "C3")
+    )
   }
 }
 

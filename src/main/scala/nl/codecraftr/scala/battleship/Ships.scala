@@ -6,8 +6,8 @@ case object AircraftCarrier extends Ship
 
 case object Battleship extends Ship
 
-case object Submarine extends Ship
+case class Submarine(square1: String, square2: String, square3: String) extends Ship
 
 case object Cruiser extends Ship
 
-case class Destroyer(s1: String, s2: String) extends Ship
+case class Destroyer(square1: String, square2: String) extends Ship
