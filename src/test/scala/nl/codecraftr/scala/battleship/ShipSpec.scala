@@ -7,15 +7,15 @@ import org.scalatest.matchers.should.Matchers
 
 class ShipSpec extends AnyFlatSpec with Matchers {
   "Destroyer" should "take up two squares" in {
-    Destroyer(Square(ONE, B), Square(TWO, B))
+    Destroyer(Square(B, ONE), Square(B, TWO))
       .squares
-      .shouldBe(Set(Square(ONE, B), Square(TWO, B)))
+      .shouldBe(Set(Square(B, ONE), Square(B, TWO)))
   }
 
   "Submarine" should "take up three squares" in {
-    Submarine(Square(ONE, B), Square(TWO, B), Square(THREE, B))
+    Submarine(Square(B, ONE), Square(B, TWO), Square(B, THREE))
       .squares
-      .shouldBe(Set(Square(ONE, B), Square(TWO, B), Square(THREE, B)))
+      .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE)))
   }
 
   "Cruiser" should "take up three squares" in {}

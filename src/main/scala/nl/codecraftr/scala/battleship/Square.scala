@@ -15,4 +15,4 @@ object Rows extends Enumeration {
   val ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN = Value
 }
 
-case class Square(row: Row, column: Column)
+case class Square(column: Column, row: Row)

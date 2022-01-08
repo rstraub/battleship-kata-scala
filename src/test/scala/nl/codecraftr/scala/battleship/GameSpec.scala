@@ -15,7 +15,7 @@ class GameSpec extends AnyFlatSpec with Matchers {
   "arrange" should "allow player one to arrange his ships" in {
     val game = Game.create()
 
-    val result = game.arrange(game.playerOne, Destroyer(Square(ONE, B), Square(TWO, B)))
+    val result = game.arrange(game.playerOne, Destroyer(Square(B, ONE), Square(B, TWO)))
 
     result.playerOne.ships should have size 1
   }
