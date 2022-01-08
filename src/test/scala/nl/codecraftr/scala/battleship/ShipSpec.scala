@@ -18,7 +18,11 @@ class ShipSpec extends AnyFlatSpec with Matchers {
       .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE)))
   }
 
-  "Cruiser" should "take up three squares" in {}
+  "Cruiser" should "take up three squares" in {
+    Cruiser(Square(B, ONE), Square(B, TWO), Square(B, THREE))
+      .squares
+      .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE)))
+  }
 
   "Battleship" should "take up four squares" in {}
 
