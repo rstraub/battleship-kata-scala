@@ -1,8 +1,9 @@
 package nl.codecraftr.scala.battleship
 
 object Game {
-  val playerOne: Player = Player.create()
-  val playerTwo: Player = Player.create()
+  def create(): Game = Game(Player.create(), Player.create())
+}
 
-  def arrange(player: Player, ship: Ship): Unit = println(s"arrange $player, $ship")
+case class Game(playerOne: Player, playerTwo: Player) {
+  def arrange(player: Player, ship: Ship, coords: List[String]): Game = ???
 }
