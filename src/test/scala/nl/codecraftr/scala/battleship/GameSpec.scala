@@ -15,6 +15,6 @@ class GameSpec extends AnyFlatSpec with Matchers {
 
     val result = game.arrange(game.playerOne, Destroyer, List("B1", "B2"))
 
-    result.playerOne.ships should contain(Destroyer)
+    result.playerOne.ships should have size 1
   }
 }
