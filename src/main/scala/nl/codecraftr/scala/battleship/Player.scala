@@ -7,7 +7,7 @@ case class Player(ships: Set[Ship], grid: Grid) {
       .map(copy(_))
       .getOrElse(this)
 
-  private def findShip(target: Square) = ships.find(_.squares.contains(target))
+  private def findShip(target: Square) = ships.find(_.squares(target))
 
   private def replace(ship: Ship, other: Ship) = ships - ship + other
 
