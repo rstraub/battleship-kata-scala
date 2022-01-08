@@ -3,7 +3,7 @@ package nl.codecraftr.scala.battleship
 import nl.codecraftr.scala.battleship.Columns.B
 import nl.codecraftr.scala.battleship.Rows.{FIVE, FOUR, ONE, THREE, TWO}
 import nl.codecraftr.scala.battleship.Ship._
-import nl.codecraftr.scala.battleship.ShipKinds.{DESTROYER, SUBMARINE}
+import nl.codecraftr.scala.battleship.ShipTypes.{DESTROYER, SUBMARINE}
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
@@ -63,8 +63,8 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
     result.isSunk shouldBe false
   }
 
-  "kind" should "announce the kind of ship it is" in {
-    destroyer(b1, b2).kind shouldBe DESTROYER
-    submarine(b1, b2, b3).kind shouldBe SUBMARINE
+  "shipType" should "announce the type of the ship" in {
+    destroyer(b1, b2).shipType shouldBe DESTROYER
+    submarine(b1, b2, b3).shipType shouldBe SUBMARINE
   }
 }

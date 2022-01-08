@@ -1,25 +1,15 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.ShipKinds.{AIRCRAFT_CARRIER, BATTLESHIP, CRUISER, DESTROYER, SUBMARINE, ShipKind}
+import nl.codecraftr.scala.battleship.ShipTypes.{AIRCRAFT_CARRIER, BATTLESHIP, CRUISER, DESTROYER, SUBMARINE, ShipType}
 
 sealed trait Ship {
   val squares: Set[Square]
   val hits: Set[Square]
-  val kind: ShipKind
+  val shipType: ShipType
 
   def hit(square: Square): Ship
 
   def isSunk: Boolean = hits == squares
-}
-
-object ShipKinds extends Enumeration {
-  type ShipKind = Value
-
-  val DESTROYER, CRUISER, SUBMARINE, BATTLESHIP, AIRCRAFT_CARRIER = Value
-}
-
-private case class ShipCons(kind: ShipKind, squares: Set[Square], hits: Set[Square] = Set()) extends Ship {
-  def hit(square: Square): Ship = copy(hits = this.hits + square)
 }
 
 object Ship {
@@ -37,4 +27,8 @@ object Ship {
 
   def destroyer(square1: Square, square2: Square): Ship =
     ShipCons(DESTROYER, Set(square1, square2))
+}
+
+private case class ShipCons(shipType: ShipType, squares: Set[Square], hits: Set[Square] = Set()) extends Ship {
+  def hit(square: Square): Ship = copy(hits = this.hits + square)
 }
