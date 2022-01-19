@@ -1,7 +1,6 @@
 package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.Ship._
-import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
@@ -30,7 +29,8 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   }
 
   "shoot" should "return ship with +1 hit" in {
-    aShip.shoot() shouldBe Some(aShip.copy(hits = 1))
+    val ship = cruiser().copy(hits = 1)
+    ship.shoot() shouldBe Some(ship.copy(hits = 2))
   }
 
   it should "return none given ship is already sunk"

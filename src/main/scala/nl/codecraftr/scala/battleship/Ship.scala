@@ -1,7 +1,7 @@
 package nl.codecraftr.scala.battleship
 
 case class Ship(occupies: Int, hits: Int = 0) {
-  def shoot(): Option[Ship] = Some(copy(hits = 1))
+  def shoot(): Option[Ship] = Some(copy(hits = hits + 1))
 
   final def isSunk: Boolean = hits == occupies
 }
