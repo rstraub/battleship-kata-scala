@@ -1,8 +1,8 @@
-package nl.codecraftr.scala.battleship
+package nl.codecraftr.scala.battleship.grid
 
+import nl.codecraftr.scala.battleship.Ship
 import nl.codecraftr.scala.battleship.grid.Columns.Column
 import nl.codecraftr.scala.battleship.grid.Rows.Row
-import nl.codecraftr.scala.battleship.grid._
 
 case class PlacementCoordinate(
     override val column: Column,

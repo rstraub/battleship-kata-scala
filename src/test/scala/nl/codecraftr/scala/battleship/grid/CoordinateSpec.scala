@@ -1,6 +1,5 @@
 package nl.codecraftr.scala.battleship.grid
 
-import nl.codecraftr.scala.battleship.PlacementCoordinate
 import nl.codecraftr.scala.battleship.grid.Columns.{A, B}
 import nl.codecraftr.scala.battleship.grid.Rows.{ONE, TWO}
 import org.scalatest.flatspec.AnyFlatSpec
