@@ -23,7 +23,7 @@ class GridSpec extends AnyFlatSpec with Matchers {
     squares.map(_.row) shouldBe Rows.values
   }
 
-  "place" should "place a ship given valid placement" ignore {
+  "place" should "place a ship given valid placement" in {
     val ship = destroyer()
     val result =
       aGrid.place(ship, Set(Coordinate(A, ONE), Coordinate(A, TWO))).get

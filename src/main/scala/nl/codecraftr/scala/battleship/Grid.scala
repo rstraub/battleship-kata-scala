@@ -8,8 +8,14 @@ case class Coordinate(column: Column, row: Row)
 
 case class Grid(squares: Set[Square]) {
   def place(ship: Ship, coordinates: Set[Coordinate]): Option[Grid] = {
-    None
+    val toReplace: Set[Square] = coordinates.flatMap(findBy)
+    val newSquares: Set[Square] = toReplace.flatMap(_.place(ship))
+    val updated: Set[Square] = squares -- toReplace ++ newSquares
+    Some(copy(squares = updated))
   }
+
+  private def findBy(coordinate: Coordinate): Option[Square] =
+    squares.find(s => s.row == coordinate.row && s.column == coordinate.column)
 }
 
 object Grid {
