@@ -18,7 +18,7 @@ case class Grid(squares: Set[Square]) {
   }
 
   private def findBy(coordinate: Coordinate): Option[Square] =
-    squares.find(s => s.row == coordinate.row && s.column == coordinate.column)
+    squares.find(_.equalTo(coordinate))
 }
 
 object Grid {
