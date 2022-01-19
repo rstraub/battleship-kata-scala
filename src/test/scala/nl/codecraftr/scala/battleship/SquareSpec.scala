@@ -34,4 +34,11 @@ class SquareSpec extends AnyFlatSpec with Matchers {
 
     result shouldBe Some(MissedSquare(square.column, square.row))
   }
+
+  it should "return hit square given occupied square" in {
+    val square = anOccupiedSquare
+    val result = square.shoot()
+
+    result shouldBe Some(HitSquare(square.column, square.row, square.ship))
+  }
 }
