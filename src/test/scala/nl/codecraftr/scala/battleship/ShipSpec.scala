@@ -5,13 +5,15 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
-  private var ship: Ship = _
-
   override def beforeEach(): Unit = {}
 
-  "Destroyer" should "take up two squares" in {}
+  "Destroyer" should "take up two squares" in {
+    Destroyer().occupies shouldBe 2
+  }
 
-  "Submarine" should "take up three squares" in {}
+  "Submarine" should "take up three squares" in {
+    Submarine().occupies shouldBe 3
+  }
 
   "Cruiser" should "take up three squares" in {}
 
