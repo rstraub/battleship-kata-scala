@@ -15,11 +15,17 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
     Submarine().occupies shouldBe 3
   }
 
-  "Cruiser" should "take up three squares" in {}
+  "Cruiser" should "take up three squares" in {
+    Cruiser().occupies shouldBe 3
+  }
 
-  "Battleship" should "take up four squares" in {}
+  "Battleship" should "take up four squares" in {
+    Battleship().occupies shouldBe 4
+  }
 
-  "AircraftCarrier" should "take up five squares" in {}
+  "AircraftCarrier" should "take up five squares" in {
+    AircraftCarrier().occupies shouldBe 5
+  }
 
   "hit" should "register hit" in {}
 
