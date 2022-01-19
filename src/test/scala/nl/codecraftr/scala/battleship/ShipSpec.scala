@@ -1,5 +1,6 @@
 package nl.codecraftr.scala.battleship
 
+import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
@@ -27,9 +28,14 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
     AircraftCarrier().occupies shouldBe 5
   }
 
-  "hit" should "register hit" in {}
+  "shoot" should "return ship with +1 hit" in {
+    val ship = Destroyer()
+    ship.shoot() shouldBe Some(aShip)
+  }
 
-  it should "should be sunk given all squares are hit" in {}
+  it should "return none given ship is already sunk"
 
-  it should "not be sunk otherwise" in {}
+  "isSunk" should "return true given all squares are hit" in {}
+
+  it should "return false given not all squares are hit" in {}
 }
