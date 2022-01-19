@@ -1,7 +1,5 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.Columns.A
-import nl.codecraftr.scala.battleship.Rows.ONE
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import nl.codecraftr.scala.battleship.SquareTdb.{
   aHitSquare,
@@ -9,6 +7,8 @@ import nl.codecraftr.scala.battleship.SquareTdb.{
   anEmptySquare,
   anOccupiedSquare
 }
+import nl.codecraftr.scala.battleship.squares.Columns.A
+import nl.codecraftr.scala.battleship.squares.Rows.ONE
 import nl.codecraftr.scala.battleship.squares.{
   EmptySquare,
   HitSquare,

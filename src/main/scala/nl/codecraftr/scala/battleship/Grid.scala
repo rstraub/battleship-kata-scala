@@ -1,6 +1,11 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.squares.{EmptySquare, Square}
+import nl.codecraftr.scala.battleship.squares.{
+  Columns,
+  EmptySquare,
+  Rows,
+  Square
+}
 
 case class Grid(squares: Set[Square], shots: Set[Square] = Set()) {
   def shot(target: Square): Option[Grid] =

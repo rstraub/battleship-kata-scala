@@ -1,4 +1,4 @@
-package nl.codecraftr.scala.battleship
+package nl.codecraftr.scala.battleship.squares
 
 object Columns extends Enumeration {
   type Column = Value

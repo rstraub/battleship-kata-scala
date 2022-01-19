@@ -1,5 +1,6 @@
 package nl.codecraftr.scala.battleship
 
+import nl.codecraftr.scala.battleship.squares.{Columns, Rows}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
