@@ -27,4 +27,11 @@ class SquareSpec extends AnyFlatSpec with Matchers {
 
     result shouldBe None
   }
+
+  "shoot" should "return missed square given empty square" in {
+    val square = anEmptySquare
+    val result = square.shoot()
+
+    result shouldBe Some(MissedSquare(square.column, square.row))
+  }
 }
