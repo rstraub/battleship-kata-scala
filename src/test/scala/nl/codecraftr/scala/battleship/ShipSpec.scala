@@ -33,7 +33,11 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
     ship.shoot() shouldBe Some(ship.copy(hits = 2))
   }
 
-  it should "return none given ship is already sunk"
+  it should "return none given ship is already sunk" in {
+    val ship = destroyer().copy(hits = 2)
+
+    ship.shoot() shouldBe None
+  }
 
   "isSunk" should "return true given all squares are hit" in {}
 
