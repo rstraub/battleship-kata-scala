@@ -1,7 +1,7 @@
-package nl.codecraftr.scala.battleship.squares
+package nl.codecraftr.scala.battleship.grid
 
-import nl.codecraftr.scala.battleship.squares.Columns.A
-import nl.codecraftr.scala.battleship.squares.Rows.ONE
+import nl.codecraftr.scala.battleship.grid.Columns.A
+import nl.codecraftr.scala.battleship.grid.Rows.ONE
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

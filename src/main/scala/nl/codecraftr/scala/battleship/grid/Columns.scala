@@ -1,4 +1,4 @@
-package nl.codecraftr.scala.battleship.squares
+package nl.codecraftr.scala.battleship.grid
 
 object Columns extends Enumeration {
   type Column = Value

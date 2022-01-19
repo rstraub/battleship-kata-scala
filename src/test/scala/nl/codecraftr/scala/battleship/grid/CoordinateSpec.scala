@@ -1,8 +1,8 @@
-package nl.codecraftr.scala.battleship.squares
+package nl.codecraftr.scala.battleship.grid
 
 import nl.codecraftr.scala.battleship.PlacementCoordinate
-import nl.codecraftr.scala.battleship.squares.Columns.{A, B}
-import nl.codecraftr.scala.battleship.squares.Rows.{ONE, TWO}
+import nl.codecraftr.scala.battleship.grid.Columns.{A, B}
+import nl.codecraftr.scala.battleship.grid.Rows.{ONE, TWO}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

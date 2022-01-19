@@ -2,9 +2,9 @@ package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.GridTdb.aGrid
 import nl.codecraftr.scala.battleship.Ship.destroyer
-import nl.codecraftr.scala.battleship.squares.Columns.A
-import nl.codecraftr.scala.battleship.squares.Rows.{ONE, TWO}
-import nl.codecraftr.scala.battleship.squares.{Columns, OccupiedSquare, Rows}
+import nl.codecraftr.scala.battleship.grid.Columns.A
+import nl.codecraftr.scala.battleship.grid.Rows.{ONE, TWO}
+import nl.codecraftr.scala.battleship.grid.{Columns, OccupiedSquare, Rows}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

@@ -1,7 +1,7 @@
-package nl.codecraftr.scala.battleship.squares
+package nl.codecraftr.scala.battleship.grid
 
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
-import nl.codecraftr.scala.battleship.squares.SquareTdb.anOccupiedSquare
+import nl.codecraftr.scala.battleship.grid.SquareTdb.anOccupiedSquare
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 

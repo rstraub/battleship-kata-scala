@@ -1,19 +1,19 @@
-package nl.codecraftr.scala.battleship.squares
+package nl.codecraftr.scala.battleship.grid
 
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
-import nl.codecraftr.scala.battleship.squares.SquareTdb.aHitSquare
+import nl.codecraftr.scala.battleship.grid.SquareTdb.aMissedSquare
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
-class HitSquareSpec extends AnyFlatSpec with Matchers {
+class MissedSquareSpec extends AnyFlatSpec with Matchers {
   "place" should "return none" in {
-    val result = aHitSquare.place(aShip)
+    val result = aMissedSquare.place(aShip)
 
     result shouldBe None
   }
 
   "shoot" should "return none" in {
-    val result = aHitSquare.shoot()
+    val result = aMissedSquare.shoot()
 
     result shouldBe None
   }

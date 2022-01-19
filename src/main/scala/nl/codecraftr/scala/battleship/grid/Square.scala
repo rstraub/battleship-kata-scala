@@ -1,8 +1,8 @@
-package nl.codecraftr.scala.battleship.squares
+package nl.codecraftr.scala.battleship.grid
 
 import nl.codecraftr.scala.battleship.Ship
-import nl.codecraftr.scala.battleship.squares.Columns.Column
-import nl.codecraftr.scala.battleship.squares.Rows.Row
+import nl.codecraftr.scala.battleship.grid.Columns.Column
+import nl.codecraftr.scala.battleship.grid.Rows.Row
 
 sealed trait Square extends Coordinate {
   def place(ship: Ship): Option[Square] = None
