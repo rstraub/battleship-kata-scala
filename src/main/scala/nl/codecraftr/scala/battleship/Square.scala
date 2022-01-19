@@ -14,6 +14,10 @@ trait Square {
   override def toString: String = s"$column${row.id}"
 }
 
+trait ShotSquare extends Square {
+  override def shoot(): Option[Square] = None
+}
+
 case class EmptySquare(override val column: Column, override val row: Row)
     extends Square {
   override def place(ship: Ship): Option[Square] =
@@ -31,14 +35,10 @@ case class OccupiedSquare(
 }
 
 case class MissedSquare(override val column: Column, override val row: Row)
-    extends Square {
-  override def shoot(): Option[Square] = None
-}
+    extends ShotSquare
 
 case class HitSquare(
     override val column: Column,
     override val row: Row,
     ship: Ship
-) extends Square {
-  override def shoot(): Option[Square] = None
-}
+) extends ShotSquare
