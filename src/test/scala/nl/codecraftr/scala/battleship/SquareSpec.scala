@@ -9,4 +9,6 @@ class SquareSpec extends AnyFlatSpec with Matchers {
   "toString" should "return readable representation" in {
     Square(A, ONE).toString shouldBe "A1"
   }
+
+  "place" should "return occupied square given empty square" in {}
 }

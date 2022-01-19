@@ -6,3 +6,5 @@ import nl.codecraftr.scala.battleship.Rows.Row
 case class Square(column: Column, row: Row) {
   override def toString: String = s"$column${row.id}"
 }
+
+case class EmptySquare(column: Column, row: Row)

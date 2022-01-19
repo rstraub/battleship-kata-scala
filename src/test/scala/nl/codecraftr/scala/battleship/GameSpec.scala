@@ -1,8 +1,5 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.Columns.B
-import nl.codecraftr.scala.battleship.Rows.{ONE, TWO}
-import nl.codecraftr.scala.battleship.Ship.destroyer
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -11,14 +8,5 @@ class GameSpec extends AnyFlatSpec with Matchers {
     val game = Game.create()
     game.playerOne shouldBe Player.create()
     game.playerTwo shouldBe Player.create()
-  }
-
-  "arrange" should "allow player one to arrange his ships" in {
-    val game = Game.create()
-
-    val result =
-      game.arrange(game.playerOne, destroyer(Square(B, ONE), Square(B, TWO)))
-
-    result.playerOne.ships should have size 1
   }
 }
