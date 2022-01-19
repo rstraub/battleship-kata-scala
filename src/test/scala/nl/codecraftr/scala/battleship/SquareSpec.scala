@@ -2,6 +2,7 @@ package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.Columns.A
 import nl.codecraftr.scala.battleship.Rows.ONE
+import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import nl.codecraftr.scala.battleship.SquareTdb.{
   anEmptySquare,
   anOccupiedSquare
@@ -16,13 +17,13 @@ class SquareSpec extends AnyFlatSpec with Matchers {
 
   "place" should "return occupied square given empty square" in {
     val square = anEmptySquare
-    val result = square.place(Destroyer())
+    val result = square.place(aShip)
 
-    result shouldBe Some(OccupiedSquare(square.column, square.row, Destroyer()))
+    result shouldBe Some(OccupiedSquare(square.column, square.row, aShip))
   }
 
   it should "return none given an occupied square" in {
-    val result = anOccupiedSquare.place(Destroyer())
+    val result = anOccupiedSquare.place(aShip)
 
     result shouldBe None
   }
