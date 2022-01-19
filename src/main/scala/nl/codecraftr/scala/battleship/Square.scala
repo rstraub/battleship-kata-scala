@@ -23,5 +23,5 @@ case class OccupiedSquare(
     override val row: Row,
     occupiedBy: Ship
 ) extends Square {
-  override def place(ship: Ship): Option[Square] = ???
+  override def place(ship: Ship): Option[Square] = None
 }

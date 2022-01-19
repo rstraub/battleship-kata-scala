@@ -16,4 +16,10 @@ class SquareSpec extends AnyFlatSpec with Matchers {
 
     result shouldBe Some(OccupiedSquare(A, ONE, Destroyer()))
   }
+
+  it should "return none given an occupied square" in {
+    val result = OccupiedSquare(A, ONE, Destroyer()).place(Destroyer())
+
+    result shouldBe None
+  }
 }
