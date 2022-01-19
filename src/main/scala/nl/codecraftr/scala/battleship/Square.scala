@@ -44,7 +44,7 @@ case class HitSquare(
     override val row: Row,
     ship: Ship
 ) extends Square {
-  override def place(ship: Ship): Option[Square] = ???
+  override def place(ship: Ship): Option[Square] = None
 
   override def shoot(): Option[Square] = ???
 }
