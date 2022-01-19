@@ -9,4 +9,11 @@ class SquareSpec extends AnyFlatSpec with Matchers {
   "toString" should "return readable representation" in {
     EmptySquare(A, ONE).toString shouldBe "A1"
   }
+
+  // TODO create simple TDBs for square
+  "place" should "return occupied square given empty square" in {
+    val result = EmptySquare(A, ONE).place(Destroyer())
+
+    result shouldBe Some(OccupiedSquare(A, ONE, Destroyer()))
+  }
 }

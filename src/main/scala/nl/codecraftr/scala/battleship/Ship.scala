@@ -1,12 +1,9 @@
 package nl.codecraftr.scala.battleship
 
-sealed trait Ship {
-  val hits: Int
-  val squares: Int
-
-  def hit(): Ship
-
-  def isSunk: Boolean = hits == squares
+sealed abstract class Ship(val hits: Int, val occupies: Int) {
+  def hit(): Ship = this
+  def isSunk: Boolean = hits == occupies
 }
 
-object Ship {}
+case class Destroyer(override val hits: Int = 0)
+    extends Ship(hits, occupies = 2)
