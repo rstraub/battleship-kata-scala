@@ -7,7 +7,7 @@ trait Square {
   val column: Column
   val row: Row
 
-  def place(ship: Ship): Option[Square]
+  def place(ship: Ship): Option[Square] = None
 
   def shoot(): Option[Square]
 
@@ -27,15 +27,11 @@ case class OccupiedSquare(
     override val row: Row,
     ship: Ship
 ) extends Square {
-  override def place(ship: Ship): Option[Square] = None
-
   override def shoot(): Option[Square] = Some(HitSquare(column, row, ship))
 }
 
 case class MissedSquare(override val column: Column, override val row: Row)
     extends Square {
-  override def place(ship: Ship): Option[Square] = None
-
   override def shoot(): Option[Square] = ???
 }
 
@@ -44,7 +40,5 @@ case class HitSquare(
     override val row: Row,
     ship: Ship
 ) extends Square {
-  override def place(ship: Ship): Option[Square] = None
-
   override def shoot(): Option[Square] = ???
 }
