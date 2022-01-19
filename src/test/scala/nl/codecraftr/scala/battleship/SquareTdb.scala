@@ -1,9 +1,10 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.Columns.A
-import nl.codecraftr.scala.battleship.Rows.ONE
+import nl.codecraftr.scala.battleship.ColumnsTdb.aColumn
+import nl.codecraftr.scala.battleship.RowsTdb.aRow
+import nl.codecraftr.scala.battleship.ShipTdb.aShip
 
 object SquareTdb {
-  def anEmptySquare: EmptySquare = EmptySquare(A, ONE)
-  def anOccupiedSquare: OccupiedSquare = OccupiedSquare(A, ONE, Destroyer())
+  def anEmptySquare: EmptySquare = EmptySquare(aColumn, aRow)
+  def anOccupiedSquare: OccupiedSquare = OccupiedSquare(aColumn, aRow, aShip)
 }
