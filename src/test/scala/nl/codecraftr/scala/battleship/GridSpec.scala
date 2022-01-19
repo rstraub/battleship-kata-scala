@@ -1,7 +1,10 @@
 package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.GridTdb.aGrid
-import nl.codecraftr.scala.battleship.squares.{Columns, Rows}
+import nl.codecraftr.scala.battleship.Ship.destroyer
+import nl.codecraftr.scala.battleship.squares.Columns.A
+import nl.codecraftr.scala.battleship.squares.Rows.{ONE, TWO}
+import nl.codecraftr.scala.battleship.squares.{Columns, OccupiedSquare, Rows}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -20,7 +23,13 @@ class GridSpec extends AnyFlatSpec with Matchers {
     squares.map(_.row) shouldBe Rows.values
   }
 
-  "place" should "place a ship given valid placement" in {}
+  "place" should "place a ship given valid placement" ignore {
+    val ship = destroyer()
+    val result = aGrid.place(ship, Set((A, ONE), (A, TWO))).get
+
+    result.squares.contains(OccupiedSquare(A, ONE, ship)) shouldBe true
+    result.squares.contains(OccupiedSquare(A, TWO, ship)) shouldBe true
+  }
 
   it should "return none given placed on occupied square" in {}
 }

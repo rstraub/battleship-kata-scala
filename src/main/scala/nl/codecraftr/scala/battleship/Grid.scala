@@ -1,18 +1,13 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.squares.{
-  Columns,
-  EmptySquare,
-  Rows,
-  Square
-}
+import nl.codecraftr.scala.battleship.squares.Columns.Column
+import nl.codecraftr.scala.battleship.squares.Rows.Row
+import nl.codecraftr.scala.battleship.squares._
 
-case class Grid(squares: Set[Square], shots: Set[Square] = Set()) {
-  def shot(target: Square): Option[Grid] =
-    if (shots(target))
-      None
-    else
-      Some(copy(shots = this.shots + target))
+case class Grid(squares: Set[Square]) {
+  def place(ship: Ship, coordinates: Set[(Column, Row)]): Option[Grid] = {
+    None
+  }
 }
 
 object Grid {
