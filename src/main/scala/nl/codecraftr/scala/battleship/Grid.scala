@@ -22,9 +22,9 @@ case class Grid(squares: Set[Square]) {
 }
 
 object Grid {
-  def create(): Grid = Grid(allSquares().toSet)
+  def create(): Grid = Grid(emptySquares().toSet)
 
-  private def allSquares() = for {
+  private def emptySquares() = for {
     c <- Columns.values.toList
     r <- Rows.values.toList
   } yield EmptySquare(c, r)
