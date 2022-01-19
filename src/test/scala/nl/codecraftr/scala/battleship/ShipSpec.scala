@@ -2,13 +2,10 @@ package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.Ship._
 import nl.codecraftr.scala.battleship.ShipTdb.{aHitShip, aSunkShip}
-import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
-class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
-  override def beforeEach(): Unit = {}
-
+class ShipSpec extends AnyFlatSpec with Matchers {
   "Destroyer" should "take up two squares" in {
     destroyer().occupies shouldBe 2
   }
