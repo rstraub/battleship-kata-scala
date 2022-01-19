@@ -55,4 +55,16 @@ class SquareSpec extends AnyFlatSpec with Matchers {
 
     result shouldBe Some(HitSquare(square.column, square.row, square.ship))
   }
+
+  it should "return none given missed square" in {
+    val result = aMissedSquare.shoot()
+
+    result shouldBe None
+  }
+
+  it should "return none given a hit square" in {
+    val result = aHitSquare.shoot()
+
+    result shouldBe None
+  }
 }
