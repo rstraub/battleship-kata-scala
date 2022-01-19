@@ -29,9 +29,8 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
     aircraftCarrier().occupies shouldBe 5
   }
 
-  "shoot" should "return ship with +1 hit" ignore {
-    val ship = destroyer()
-    ship.shoot() shouldBe Some(aShip)
+  "shoot" should "return ship with +1 hit" in {
+    aShip.shoot() shouldBe Some(aShip.copy(hits = 1))
   }
 
   it should "return none given ship is already sunk"
