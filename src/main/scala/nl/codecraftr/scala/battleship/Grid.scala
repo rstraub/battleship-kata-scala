@@ -1,5 +1,7 @@
 package nl.codecraftr.scala.battleship
 
+import nl.codecraftr.scala.battleship.squares.{EmptySquare, Square}
+
 case class Grid(squares: Set[Square], shots: Set[Square] = Set()) {
   def shot(target: Square): Option[Grid] =
     if (shots(target))

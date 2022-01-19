@@ -9,6 +9,12 @@ import nl.codecraftr.scala.battleship.SquareTdb.{
   anEmptySquare,
   anOccupiedSquare
 }
+import nl.codecraftr.scala.battleship.squares.{
+  EmptySquare,
+  HitSquare,
+  MissedSquare,
+  OccupiedSquare
+}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
