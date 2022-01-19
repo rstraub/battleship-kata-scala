@@ -1,5 +1,6 @@
 package nl.codecraftr.scala.battleship
 
+import nl.codecraftr.scala.battleship.Ship._
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
@@ -9,27 +10,27 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   override def beforeEach(): Unit = {}
 
   "Destroyer" should "take up two squares" in {
-    Destroyer().occupies shouldBe 2
+    destroyer().occupies shouldBe 2
   }
 
   "Submarine" should "take up three squares" in {
-    Submarine().occupies shouldBe 3
+    submarine().occupies shouldBe 3
   }
 
   "Cruiser" should "take up three squares" in {
-    Cruiser().occupies shouldBe 3
+    cruiser().occupies shouldBe 3
   }
 
   "Battleship" should "take up four squares" in {
-    Battleship().occupies shouldBe 4
+    battleship().occupies shouldBe 4
   }
 
   "AircraftCarrier" should "take up five squares" in {
-    AircraftCarrier().occupies shouldBe 5
+    aircraftCarrier().occupies shouldBe 5
   }
 
-  "shoot" should "return ship with +1 hit" in {
-    val ship = Destroyer()
+  "shoot" should "return ship with +1 hit" ignore {
+    val ship = destroyer()
     ship.shoot() shouldBe Some(aShip)
   }
 

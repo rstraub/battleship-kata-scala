@@ -1,34 +1,15 @@
 package nl.codecraftr.scala.battleship
 
-sealed abstract class Ship(val occupies: Int, val hits: Int) {
+case class Ship(occupies: Int, hits: Int = 0) {
   def shoot(): Ship = this
 
   final def isSunk: Boolean = hits == occupies
-
-  protected def withHits(hits: Int): Ship
 }
 
-case class Destroyer(override val hits: Int = 0)
-    extends Ship(occupies = 2, hits) {
-  override def withHits(hits: Int): Ship = copy(hits = hits)
-}
-
-case class Submarine(override val hits: Int = 0)
-    extends Ship(occupies = 3, hits) {
-  override def withHits(hits: Int): Ship = copy(hits = hits)
-}
-
-case class Cruiser(override val hits: Int = 0)
-    extends Ship(occupies = 3, hits) {
-  override def withHits(hits: Int): Ship = copy(hits = hits)
-}
-
-case class Battleship(override val hits: Int = 0)
-    extends Ship(occupies = 4, hits) {
-  override def withHits(hits: Int): Ship = copy(hits = hits)
-}
-
-case class AircraftCarrier(override val hits: Int = 0)
-    extends Ship(occupies = 5, hits) {
-  override def withHits(hits: Int): Ship = copy(hits = hits)
+object Ship {
+  def destroyer(): Ship = Ship(2)
+  def submarine(): Ship = Ship(3)
+  def cruiser(): Ship = Ship(3)
+  def battleship(): Ship = Ship(4)
+  def aircraftCarrier(): Ship = Ship(5)
 }
