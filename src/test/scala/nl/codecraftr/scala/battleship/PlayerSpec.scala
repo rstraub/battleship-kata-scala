@@ -1,14 +1,10 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.Columns.B
-import nl.codecraftr.scala.battleship.Rows.{ONE, TWO}
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
-  private val square1: Square = Square(B, ONE)
-  private val square2: Square = Square(B, TWO)
   private var player: Player = _
 
   override def beforeEach(): Unit = {

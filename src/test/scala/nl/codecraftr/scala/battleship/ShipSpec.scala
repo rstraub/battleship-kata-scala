@@ -1,15 +1,10 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.Columns.B
-import nl.codecraftr.scala.battleship.Rows.{ONE, THREE, TWO}
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
 class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
-  private val b1 = Square(B, ONE)
-  private val b2 = Square(B, TWO)
-  private val b3 = Square(B, THREE)
   private var ship: Ship = _
 
   override def beforeEach(): Unit = {}

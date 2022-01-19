@@ -14,5 +14,5 @@ object Grid {
   private def allSquares() = for {
     c <- Columns.values.toList
     r <- Rows.values.toList
-  } yield Square(c, r)
+  } yield EmptySquare(c, r)
 }
