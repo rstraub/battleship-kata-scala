@@ -11,7 +11,8 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   private val square1: Square = Square(B, ONE)
   private val square2: Square = Square(B, TWO)
   private val aShip = destroyer(square1, square2)
-  private val anotherShip = submarine(Square(D, ONE), Square(D, TWO), Square(D, THREE))
+  private val anotherShip =
+    submarine(Square(D, ONE), Square(D, TWO), Square(D, THREE))
   private var player: Player = _
 
   override def beforeEach(): Unit = {
@@ -31,12 +32,13 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   "arrange" should "place the ship in new player with its coordinates" in {
     val destroyer = Ship.destroyer(square1, square2)
 
-    val submarine = Ship.submarine(Square(C, ONE), Square(C, TWO), Square(C, THREE))
+    val submarine =
+      Ship.submarine(Square(C, ONE), Square(C, TWO), Square(C, THREE))
 
     val result = player
       .arrange(destroyer)
       .arrange(submarine)
-    result.ships should contain allOf(
+    result.ships should contain allOf (
       destroyer,
       submarine
     )
@@ -75,4 +77,3 @@ class PlayerSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   }
 
 }
-

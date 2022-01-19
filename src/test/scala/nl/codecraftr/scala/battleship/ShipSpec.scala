@@ -19,33 +19,49 @@ class ShipSpec extends AnyFlatSpec with Matchers with BeforeAndAfterEach {
   }
 
   "Destroyer" should "take up two squares" in {
-    destroyer(Square(B, ONE), Square(B, TWO))
-      .squares
+    destroyer(Square(B, ONE), Square(B, TWO)).squares
       .shouldBe(Set(Square(B, ONE), Square(B, TWO)))
   }
 
   "Submarine" should "take up three squares" in {
-    submarine(Square(B, ONE), Square(B, TWO), Square(B, THREE))
-      .squares
+    submarine(Square(B, ONE), Square(B, TWO), Square(B, THREE)).squares
       .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE)))
   }
 
   "Cruiser" should "take up three squares" in {
-    cruiser(Square(B, ONE), Square(B, TWO), Square(B, THREE))
-      .squares
+    cruiser(Square(B, ONE), Square(B, TWO), Square(B, THREE)).squares
       .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE)))
   }
 
   "Battleship" should "take up four squares" in {
-    battleship(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR))
-      .squares
-      .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR)))
+    battleship(
+      Square(B, ONE),
+      Square(B, TWO),
+      Square(B, THREE),
+      Square(B, FOUR)
+    ).squares
+      .shouldBe(
+        Set(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR))
+      )
   }
 
   "AircraftCarrier" should "take up five squares" in {
-    aircraftCarrier(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR), Square(B, FIVE))
-      .squares
-      .shouldBe(Set(Square(B, ONE), Square(B, TWO), Square(B, THREE), Square(B, FOUR), Square(B, FIVE)))
+    aircraftCarrier(
+      Square(B, ONE),
+      Square(B, TWO),
+      Square(B, THREE),
+      Square(B, FOUR),
+      Square(B, FIVE)
+    ).squares
+      .shouldBe(
+        Set(
+          Square(B, ONE),
+          Square(B, TWO),
+          Square(B, THREE),
+          Square(B, FOUR),
+          Square(B, FIVE)
+        )
+      )
   }
 
   "hit" should "register hit" in {
