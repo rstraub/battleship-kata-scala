@@ -1,11 +1,11 @@
 package nl.codecraftr.scala.battleship
 
 case class Grid(squares: Set[Square], shots: Set[Square] = Set()) {
-  def shot(target: Square): Either[String, Grid] =
+  def shot(target: Square): Option[Grid] =
     if (shots(target))
-      Left(s"Square $target was already shot")
+      None
     else
-      Right(copy(shots = this.shots + target))
+      Some(copy(shots = this.shots + target))
 }
 
 object Grid {

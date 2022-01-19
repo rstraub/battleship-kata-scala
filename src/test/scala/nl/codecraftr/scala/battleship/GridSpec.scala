@@ -30,10 +30,10 @@ class GridSpec extends AnyFlatSpec with Matchers {
   }
 
   "shot" should "register squares that have been shot" in {
-    Grid.create().shot(square).map(_.shots).shouldBe(Right(Set(square)))
+    Grid.create().shot(square).map(_.shots) shouldBe Some(Set(square))
   }
 
   it should "return exception given same square is shot twice" in {
-    Grid.create().shot(square).flatMap(_.shot(square)) shouldBe Left(s"Square $square was already shot")
+    Grid.create().shot(square).flatMap(_.shot(square)) shouldBe None
   }
 }
