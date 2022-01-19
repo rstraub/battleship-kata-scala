@@ -26,7 +26,12 @@ class GridSpec extends AnyFlatSpec with Matchers {
   "place" should "place a ship given valid placement" in {
     val ship = destroyer()
     val result =
-      aGrid.place(ship, Set(Coordinate(A, ONE), Coordinate(A, TWO))).get
+      aGrid
+        .place(
+          ship,
+          Set(PlacementCoordinate(A, ONE), PlacementCoordinate(A, TWO))
+        )
+        .get
 
     result.squares.contains(OccupiedSquare(A, ONE, ship)) shouldBe true
     result.squares.contains(OccupiedSquare(A, TWO, ship)) shouldBe true

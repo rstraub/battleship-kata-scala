@@ -4,7 +4,10 @@ import nl.codecraftr.scala.battleship.squares.Columns.Column
 import nl.codecraftr.scala.battleship.squares.Rows.Row
 import nl.codecraftr.scala.battleship.squares._
 
-case class Coordinate(column: Column, row: Row)
+case class PlacementCoordinate(
+    override val column: Column,
+    override val row: Row
+) extends Coordinate
 
 case class Grid(squares: Set[Square]) {
   def place(ship: Ship, coordinates: Set[Coordinate]): Option[Grid] = {
