@@ -4,6 +4,7 @@ import nl.codecraftr.scala.battleship.Columns.A
 import nl.codecraftr.scala.battleship.Rows.ONE
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import nl.codecraftr.scala.battleship.SquareTdb.{
+  aMissedSquare,
   anEmptySquare,
   anOccupiedSquare
 }
@@ -26,6 +27,12 @@ class SquareSpec extends AnyFlatSpec with Matchers {
     val result = anOccupiedSquare.place(aShip)
 
     result shouldBe None
+  }
+
+  it should "return none given missed square" in {
+    val result = aMissedSquare
+
+    result.place(aShip) shouldBe None
   }
 
   "shoot" should "return missed square given empty square" in {

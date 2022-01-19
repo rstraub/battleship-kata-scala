@@ -34,7 +34,7 @@ case class OccupiedSquare(
 
 case class MissedSquare(override val column: Column, override val row: Row)
     extends Square {
-  override def place(ship: Ship): Option[Square] = ???
+  override def place(ship: Ship): Option[Square] = None
 
   override def shoot(): Option[Square] = ???
 }
