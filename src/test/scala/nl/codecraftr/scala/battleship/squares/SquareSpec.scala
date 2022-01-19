@@ -1,19 +1,13 @@
-package nl.codecraftr.scala.battleship
+package nl.codecraftr.scala.battleship.squares
 
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
-import nl.codecraftr.scala.battleship.SquareTdb.{
+import nl.codecraftr.scala.battleship.squares.Columns.A
+import nl.codecraftr.scala.battleship.squares.Rows.ONE
+import nl.codecraftr.scala.battleship.squares.SquareTdb.{
   aHitSquare,
   aMissedSquare,
   anEmptySquare,
   anOccupiedSquare
-}
-import nl.codecraftr.scala.battleship.squares.Columns.A
-import nl.codecraftr.scala.battleship.squares.Rows.ONE
-import nl.codecraftr.scala.battleship.squares.{
-  EmptySquare,
-  HitSquare,
-  MissedSquare,
-  OccupiedSquare
 }
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers

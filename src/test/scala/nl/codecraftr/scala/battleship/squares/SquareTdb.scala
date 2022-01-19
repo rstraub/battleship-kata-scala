@@ -1,14 +1,9 @@
-package nl.codecraftr.scala.battleship
+package nl.codecraftr.scala.battleship.squares
 
-import nl.codecraftr.scala.battleship.ColumnsTdb.aColumn
-import nl.codecraftr.scala.battleship.RowsTdb.aRow
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
-import nl.codecraftr.scala.battleship.squares.{
-  EmptySquare,
-  HitSquare,
-  MissedSquare,
-  OccupiedSquare
-}
+import nl.codecraftr.scala.battleship.squares
+import nl.codecraftr.scala.battleship.squares.ColumnsTdb.aColumn
+import nl.codecraftr.scala.battleship.squares.RowsTdb.aRow
 
 object SquareTdb {
   def anEmptySquare: EmptySquare = squares.EmptySquare(aColumn, aRow)
