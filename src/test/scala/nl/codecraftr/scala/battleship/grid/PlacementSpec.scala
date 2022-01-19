@@ -24,7 +24,14 @@ class PlacementSpec extends AnyFlatSpec with Matchers {
     )
   }
 
-  it should "not be created given too few coordinates" in {}
+  it should "not be created given too few coordinates" in {
+    val coordinates: Set[Coordinate] =
+      Set(Target(A, ONE))
+
+    an[IllegalArgumentException] shouldBe thrownBy(
+      Placement(destroyer(), coordinates)
+    )
+  }
 
   it should "not be created given coordinates are not adjacent" in {}
 }
