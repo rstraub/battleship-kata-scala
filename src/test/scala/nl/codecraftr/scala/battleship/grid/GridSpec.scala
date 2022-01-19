@@ -28,7 +28,7 @@ class GridSpec extends AnyFlatSpec with Matchers {
       aGrid
         .place(
           ship,
-          Set(PlacementCoordinate(A, ONE), PlacementCoordinate(A, TWO))
+          Set(Target(A, ONE), Target(A, TWO))
         )
         .get
 

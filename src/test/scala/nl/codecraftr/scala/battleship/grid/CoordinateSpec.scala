@@ -7,20 +7,20 @@ import org.scalatest.matchers.should.Matchers
 
 class CoordinateSpec extends AnyFlatSpec with Matchers {
   "equalTo" should "return true given same coordinate" in {
-    PlacementCoordinate(A, ONE).equalTo(
-      PlacementCoordinate(A, ONE)
+    Target(A, ONE).equalTo(
+      Target(A, ONE)
     ) shouldBe true
   }
 
   it should "return false given a different row" in {
-    PlacementCoordinate(A, ONE).equalTo(
-      PlacementCoordinate(A, TWO)
+    Target(A, ONE).equalTo(
+      Target(A, TWO)
     ) shouldBe false
   }
 
   it should "return false given a different column" in {
-    PlacementCoordinate(A, ONE).equalTo(
-      PlacementCoordinate(B, ONE)
+    Target(A, ONE).equalTo(
+      Target(B, ONE)
     ) shouldBe false
   }
 }
