@@ -3,8 +3,9 @@
 - [X] Player placing a ship
 - [X] Shooting a player
 - [ ] Player status
-    - [X] Sunk
-    - [ ] Arranged
+    - [ ] Placing
+    - [ ] Ready
+    - [ ] Dead
 - [ ] Game setup (arranging pieces)
 - [ ] Game turns, alternate between players
 - [ ] Announce game status (winner, draw, in progress)

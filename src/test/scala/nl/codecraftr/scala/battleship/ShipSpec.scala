@@ -1,7 +1,7 @@
 package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.Ship._
-import nl.codecraftr.scala.battleship.ShipTdb.{aHitShip, aSunkShip}
+import nl.codecraftr.scala.battleship.ShipTdb.{aShip, aSunkShip}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -27,21 +27,21 @@ class ShipSpec extends AnyFlatSpec with Matchers {
   }
 
   "shoot" should "return ship with +1 hit" in {
-    aHitShip().shoot() shouldBe Some(aHitShip(hits = 2))
+    aShip.shoot.get.hits shouldBe 1
   }
 
   it should "return none given ship is already sunk" in {
-    aSunkShip.shoot() shouldBe None
+    aSunkShip.shoot shouldBe None
   }
 
   "isSunk" should "return true given all squares are hit" in {
-    val result = destroyer().copy(hits = 1).shoot().get
+    val result = destroyer().shoot.flatMap(_.shoot).get
 
     result.isSunk shouldBe true
   }
 
   it should "return false given not all squares are hit" in {
-    val result = destroyer().shoot().get
+    val result = destroyer().shoot.get
 
     result.isSunk shouldBe false
   }
