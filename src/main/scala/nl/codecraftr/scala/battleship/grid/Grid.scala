@@ -32,6 +32,7 @@ case class Grid(squares: Set[Square]) {
     replace(Set(orig), Set(using))
 
   def misses: Set[Square] = Set()
+
   def hits: Set[Square] = Set()
 
   def ships: Set[Ship] = Set()

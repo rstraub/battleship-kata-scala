@@ -5,3 +5,4 @@
 * Standard library offers great flexibility (used `Set`, `Option` extensively)
 * Higher up in the object tree testing became more painful and mocking became more necessary. Reminded me of lessons
   learned in Growing Object Oriented Software
+* Private classes only work as inner classes

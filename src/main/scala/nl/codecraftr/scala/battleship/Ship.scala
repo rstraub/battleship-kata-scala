@@ -9,15 +9,6 @@ sealed trait Ship {
   def isSunk: Boolean = hits == occupies
 }
 
-private case class ShipCons(
-    override val occupies: Int,
-    override val hits: Int = 0
-) extends Ship {
-  def shoot: Option[Ship] =
-    if (hits < occupies) Some(copy(hits = hits + 1))
-    else None
-}
-
 object Ship {
   def destroyer(): Ship = ShipCons(2)
 
@@ -28,4 +19,13 @@ object Ship {
   def battleship(): Ship = ShipCons(4)
 
   def aircraftCarrier(): Ship = ShipCons(5)
+
+  private case class ShipCons(
+      override val occupies: Int,
+      override val hits: Int = 0
+  ) extends Ship {
+    def shoot: Option[Ship] =
+      if (hits < occupies) Some(copy(hits = hits + 1))
+      else None
+  }
 }
