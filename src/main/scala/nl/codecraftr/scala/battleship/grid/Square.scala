@@ -4,7 +4,8 @@ import nl.codecraftr.scala.battleship.Ship
 import nl.codecraftr.scala.battleship.grid.Columns.Column
 import nl.codecraftr.scala.battleship.grid.Rows.Row
 
-sealed trait Square extends Coordinate {
+sealed trait Square {
+  val coordinate: Coordinate
   val ship: Option[Ship]
   val shot: Boolean
 
@@ -19,17 +20,14 @@ sealed trait Square extends Coordinate {
   def miss: Boolean = shot && isEmpty
 
   def isEmpty: Boolean = ship.isEmpty
-
-  override def toString: String = s"$column${row.id}"
 }
 
 object Square {
   def apply(column: Column, row: Row): Square =
-    SquareCons(column, row)
+    SquareCons(Coordinate(column, row))
 
   private case class SquareCons(
-      override val column: Column,
-      override val row: Row,
+      override val coordinate: Coordinate,
       override val ship: Option[Ship] = None,
       override val shot: Boolean = false
   ) extends Square {

@@ -1,8 +1,6 @@
 package nl.codecraftr.scala.battleship.grid
 
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
-import nl.codecraftr.scala.battleship.grid.Columns.A
-import nl.codecraftr.scala.battleship.grid.Rows.ONE
 import nl.codecraftr.scala.battleship.grid.SquareTdb.{
   aHitSquare,
   aMissedSquare,
@@ -13,11 +11,6 @@ import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
 class SquareSpec extends AnyFunSpec with Matchers {
-  describe("toString") {
-    it("should return readable representation") {
-      Square(A, ONE).toString shouldBe "A1"
-    }
-  }
 
   describe("place") {
     it("should return occupied square given empty square") {
@@ -25,8 +18,7 @@ class SquareSpec extends AnyFunSpec with Matchers {
       val result = square.place(aShip).get
 
       result.ship shouldBe Some(aShip)
-      result.column shouldBe square.column
-      result.row shouldBe square.row
+      result.coordinate shouldBe square.coordinate
     }
 
     it("should return none given an occupied square") {

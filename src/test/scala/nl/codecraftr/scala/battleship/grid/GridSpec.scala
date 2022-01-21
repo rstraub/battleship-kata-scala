@@ -17,25 +17,25 @@ class GridSpec extends AnyFunSpec with Matchers {
     }
 
     it("should have columns from A to J") {
-      squares.map(_.column) shouldBe Columns.values
+      squares.map(_.coordinate).map(_.column) shouldBe Columns.values
     }
 
     it("should run from 1 to 10") {
-      squares.map(_.row) shouldBe Rows.values
+      squares.map(_.coordinate).map(_.row) shouldBe Rows.values
     }
   }
 
   describe("place") {
     it("should place a ship given valid placement") {
       val ship = destroyer()
-      val placement = Placement(ship, Target(A, ONE), Target(A, TWO))
+      val placement = Placement(ship, Coordinate(A, ONE), Coordinate(A, TWO))
       val result =
         aGrid
           .place(placement)
           .get
 
-      result.findBy(Target(A, ONE)).get.isOccupied shouldBe true
-      result.findBy(Target(A, TWO)).get.isOccupied shouldBe true
+      result.findBy(Coordinate(A, ONE)).get.isOccupied shouldBe true
+      result.findBy(Coordinate(A, TWO)).get.isOccupied shouldBe true
     }
 
     // TODO
@@ -45,8 +45,8 @@ class GridSpec extends AnyFunSpec with Matchers {
   describe("shoot") {
     it("should return grid with a miss and no hits given no hits") {
       val result = aGrid
-        .place(Placement(destroyer(), Target(A, TWO), Target(A, THREE)))
-        .flatMap(_.shoot(Target(A, ONE)))
+        .place(Placement(destroyer(), Coordinate(A, TWO), Coordinate(A, THREE)))
+        .flatMap(_.shoot(Coordinate(A, ONE)))
         .get
 
       result.misses should have size 1
@@ -55,8 +55,8 @@ class GridSpec extends AnyFunSpec with Matchers {
 
     it("should return grid with a hit and no misses given a ship is shot") {
       val result = aGrid
-        .place(Placement(destroyer(), Target(A, ONE), Target(A, TWO)))
-        .flatMap(_.shoot(Target(A, ONE)))
+        .place(Placement(destroyer(), Coordinate(A, ONE), Coordinate(A, TWO)))
+        .flatMap(_.shoot(Coordinate(A, ONE)))
         .get
 
       result.hits should have size 1

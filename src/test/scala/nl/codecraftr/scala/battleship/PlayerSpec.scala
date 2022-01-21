@@ -5,7 +5,7 @@ import nl.codecraftr.scala.battleship.grid.Columns.A
 import nl.codecraftr.scala.battleship.grid.GridTdb.{aGrid, aGridWithShip}
 import nl.codecraftr.scala.battleship.grid.PlacementTdb.aPlacement
 import nl.codecraftr.scala.battleship.grid.Rows.ONE
-import nl.codecraftr.scala.battleship.grid.{Grid, Target}
+import nl.codecraftr.scala.battleship.grid.{Coordinate, Grid}
 import org.mockito.Mockito.when
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.funspec.AnyFunSpec
@@ -40,7 +40,7 @@ class PlayerSpec
   }
 
   describe("shoot") {
-    val target = Target(A, ONE)
+    val target = Coordinate(A, ONE)
     it("should return player with updated grid given valid shot") {
       when(grid.shoot(target)).thenReturn(Some(aGrid))
 

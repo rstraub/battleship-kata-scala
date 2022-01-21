@@ -8,7 +8,8 @@ import org.scalatest.matchers.should.Matchers
 
 class PlacementSpec extends AnyFlatSpec with Matchers {
   it should "be created given valid coordinates" in {
-    val coordinates: Set[Coordinate] = Set(Target(A, ONE), Target(B, TWO))
+    val coordinates: Set[Coordinate] =
+      Set(Coordinate(A, ONE), Coordinate(B, TWO))
     val result = Placement(destroyer(), coordinates)
 
     result.ship shouldBe destroyer()
@@ -16,15 +17,15 @@ class PlacementSpec extends AnyFlatSpec with Matchers {
   }
 
   it should "be created given variadic coordinates" in {
-    val result = Placement(destroyer(), Target(A, ONE), Target(B, TWO))
+    val result = Placement(destroyer(), Coordinate(A, ONE), Coordinate(B, TWO))
 
     result.ship shouldBe destroyer()
-    result.coordinates shouldBe Set(Target(A, ONE), Target(B, TWO))
+    result.coordinates shouldBe Set(Coordinate(A, ONE), Coordinate(B, TWO))
   }
 
   it should "not be created given too many coordinates" in {
     val coordinates: Set[Coordinate] =
-      Set(Target(A, ONE), Target(B, TWO), Target(C, TWO))
+      Set(Coordinate(A, ONE), Coordinate(B, TWO), Coordinate(C, TWO))
 
     an[IllegalArgumentException] shouldBe thrownBy(
       Placement(destroyer(), coordinates)
@@ -33,7 +34,7 @@ class PlacementSpec extends AnyFlatSpec with Matchers {
 
   it should "not be created given too few coordinates" in {
     val coordinates: Set[Coordinate] =
-      Set(Target(A, ONE))
+      Set(Coordinate(A, ONE))
 
     an[IllegalArgumentException] shouldBe thrownBy(
       Placement(destroyer(), coordinates)

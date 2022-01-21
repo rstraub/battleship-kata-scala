@@ -6,5 +6,10 @@ import nl.codecraftr.scala.battleship.grid.Rows.{ONE, THREE, TWO}
 
 object PlacementTdb {
   def aPlacement: Placement =
-    Placement(aShip, Target(A, ONE), Target(A, TWO), Target(A, THREE))
+    Placement(
+      aShip,
+      Coordinate(A, ONE),
+      Coordinate(A, TWO),
+      Coordinate(A, THREE)
+    )
 }
