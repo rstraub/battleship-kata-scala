@@ -13,6 +13,20 @@ case class Grid(squares: Set[Square]) {
 
   private def findBy(coordinate: Coordinate): Option[Square] =
     squares.find(_.equalTo(coordinate))
+
+  def shoot(target: Target): Option[Grid] = {
+    val toReplace: Option[Square] =
+      findBy(target)
+    val newSquare: Option[Square] = toReplace.flatMap(_.shoot())
+    val both: Option[(Square, Square)] = toReplace.zip(newSquare)
+    val updated: Option[Set[Square]] =
+      both.map(both => squares - both._1 + both._2)
+    val newGrid = updated.map(s => copy(squares = s))
+    newGrid
+  }
+
+  def misses: Set[MissedSquare] = squares.collect { case s: MissedSquare => s }
+  def hits: Set[HitSquare] = squares.collect { case s: HitSquare => s }
 }
 
 object Grid {

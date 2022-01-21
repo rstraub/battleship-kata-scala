@@ -17,4 +17,5 @@
 
 # Improvements
 
+- [ ] hide case class implementations to prevent creation of invalid invariants
 - [ ] use mocks to make test setup simpler
