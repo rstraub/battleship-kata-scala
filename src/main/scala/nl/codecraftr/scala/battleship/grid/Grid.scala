@@ -1,7 +1,6 @@
 package nl.codecraftr.scala.battleship.grid
 
 import nl.codecraftr.scala.battleship.Ship
-import nl.codecraftr.scala.battleship.grid.Square.emptySquare
 
 case class Grid(squares: Set[Square]) {
   def place(placement: Placement): Option[Grid] = {
@@ -45,5 +44,5 @@ object Grid {
   private def emptySquares() = for {
     c <- Columns.values.toList
     r <- Rows.values.toList
-  } yield emptySquare(c, r)
+  } yield Square(c, r)
 }

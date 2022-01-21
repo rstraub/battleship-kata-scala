@@ -24,7 +24,7 @@ sealed trait Square extends Coordinate {
 }
 
 object Square {
-  def emptySquare(column: Column, row: Row): Square =
+  def apply(column: Column, row: Row): Square =
     SquareCons(column, row)
 
   private case class SquareCons(

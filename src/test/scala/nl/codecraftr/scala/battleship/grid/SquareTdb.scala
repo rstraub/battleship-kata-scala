@@ -3,7 +3,6 @@ package nl.codecraftr.scala.battleship.grid
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import nl.codecraftr.scala.battleship.grid.ColumnsTdb.aColumn
 import nl.codecraftr.scala.battleship.grid.RowsTdb.aRow
-import nl.codecraftr.scala.battleship.grid.Square.emptySquare
 
 object SquareTdb {
   def aMissedSquare: Square = anEmptySquare.shoot().get
@@ -12,5 +11,5 @@ object SquareTdb {
 
   def anOccupiedSquare: Square = anEmptySquare.place(aShip).get
 
-  def anEmptySquare: Square = emptySquare(aColumn, aRow)
+  def anEmptySquare: Square = Square(aColumn, aRow)
 }

@@ -3,7 +3,6 @@ package nl.codecraftr.scala.battleship.grid
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import nl.codecraftr.scala.battleship.grid.Columns.A
 import nl.codecraftr.scala.battleship.grid.Rows.ONE
-import nl.codecraftr.scala.battleship.grid.Square.emptySquare
 import nl.codecraftr.scala.battleship.grid.SquareTdb.{
   aHitSquare,
   aMissedSquare,
@@ -16,7 +15,7 @@ import org.scalatest.matchers.should.Matchers
 class SquareSpec extends AnyFunSpec with Matchers {
   describe("toString") {
     it("should return readable representation") {
-      emptySquare(A, ONE).toString shouldBe "A1"
+      Square(A, ONE).toString shouldBe "A1"
     }
   }
 
