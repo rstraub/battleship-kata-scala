@@ -1,6 +1,6 @@
 package nl.codecraftr.scala.battleship
 
-import nl.codecraftr.scala.battleship.grid.{Grid, Placement}
+import nl.codecraftr.scala.battleship.grid.PlacementTdb.aPlacement
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
@@ -17,16 +17,12 @@ class PlayerSpec
     player = Player.create()
   }
 
-  describe("create") {
-    it("have a grid on which they place ships") {
-      player.grid shouldBe Grid.create()
-    }
-  }
-
   describe("place") {
     it("should return a new player given ship placed on grid correctly") {
-      val placement = mock[Placement]
+      val result = player.place(aPlacement).get
 
+      result.grid should not be player.grid
+      result.ships should have size 1
     }
 
     it("should return none otherwise") {}
