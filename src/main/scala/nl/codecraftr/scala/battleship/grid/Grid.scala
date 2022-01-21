@@ -5,24 +5,26 @@ case class Point(x: Int, y: Int)
 case class Grid(squares: Set[Square]) {
   def place(placement: Placement): Option[Grid] = {
     val Placement(ship, coordinates) = placement
-    val toReplace: Set[Square] = coordinates.flatMap(findBy)
-    val newSquares: Set[Square] = toReplace.flatMap(_.place(ship))
+    val toReplace = findAll(coordinates)
+    val newSquares = toReplace.flatMap(_.place(ship))
     Some(replace(toReplace, newSquares))
   }
-
-  private def findBy(coordinate: Coordinate): Option[Square] =
-    squares.find(_.equalTo(coordinate))
 
   private def replace(orig: Set[Square], using: Set[Square]): Grid = {
     val updated = squares -- orig ++ using
     copy(squares = updated)
   }
 
+  private def findAll(coordinates: Set[Coordinate]): Set[Square] =
+    coordinates.flatMap(findBy)
+
+  private def findBy(coordinate: Coordinate): Option[Square] =
+    squares.find(_.equalTo(coordinate))
+
   def shoot(target: Target): Option[Grid] = {
-    val toReplace: Option[Square] =
-      findBy(target)
-    val newSquare: Option[Square] = toReplace.flatMap(_.shoot())
-    val both: Option[(Square, Square)] = toReplace.zip(newSquare)
+    val toReplace = findBy(target)
+    val newSquare = toReplace.flatMap(_.shoot())
+    val both = toReplace.zip(newSquare)
     both.map(both => replace(both._1, both._2))
   }
 
