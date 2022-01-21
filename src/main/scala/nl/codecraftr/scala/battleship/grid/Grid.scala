@@ -7,12 +7,16 @@ case class Grid(squares: Set[Square]) {
     val Placement(ship, coordinates) = placement
     val toReplace: Set[Square] = coordinates.flatMap(findBy)
     val newSquares: Set[Square] = toReplace.flatMap(_.place(ship))
-    val updated: Set[Square] = squares -- toReplace ++ newSquares
-    Some(copy(squares = updated))
+    Some(replace(toReplace, newSquares))
   }
 
   private def findBy(coordinate: Coordinate): Option[Square] =
     squares.find(_.equalTo(coordinate))
+
+  private def replace(orig: Set[Square], using: Set[Square]): Grid = {
+    val updated = squares -- orig ++ using
+    copy(squares = updated)
+  }
 
   def shoot(target: Target): Option[Grid] = {
     val toReplace: Option[Square] =
@@ -24,10 +28,6 @@ case class Grid(squares: Set[Square]) {
 
   private def replace(orig: Square, using: Square): Grid =
     replace(Set(orig), Set(using))
-  private def replace(orig: Set[Square], using: Set[Square]): Grid = {
-    val updated = squares -- orig ++ using
-    copy(squares = updated)
-  }
 
   def misses: Set[MissedSquare] = squares.collect { case s: MissedSquare => s }
 
