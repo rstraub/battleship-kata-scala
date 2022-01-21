@@ -8,10 +8,10 @@ object Game {
 }
 
 case class Game(playerOne: Player, playerTwo: Player) {
-  def place(placement: Placement): Option[Game] = {
+  def place(placement: Placement): Option[Game] =
     if (playerOne.status == PLACING)
       playerOne.place(placement).map(p1 => copy(playerOne = p1))
-    else
+    else if (playerTwo.status == PLACING)
       playerTwo.place(placement).map(p2 => copy(playerTwo = p2))
-  }
+    else None
 }

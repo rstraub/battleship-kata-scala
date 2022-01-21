@@ -20,6 +20,11 @@ class GameSpec
 
   before {
     game = Game(playerOne, playerTwo)
+
+    when(playerOne.status).thenReturn(PLACING)
+    when(playerTwo.status).thenReturn(PLACING)
+    when(playerOne.place(aPlacement)).thenReturn(Some(aPlayer))
+    when(playerTwo.place(aPlacement)).thenReturn(Some(aPlayer))
   }
 
   it("should have two players") {
@@ -30,27 +35,27 @@ class GameSpec
 
   describe("place") {
     it("should place ships on player one whilst its status is placing") {
-      when(playerOne.status).thenReturn(PLACING)
-      when(playerOne.place(aPlacement)).thenReturn(Some(aPlayer))
-
       val result = game.place(aPlacement).get
 
       result.playerOne should not be game.playerOne
-      result.playerOne shouldBe aPlayer
     }
 
     it("should place ships on player two given player one is ready") {
       when(playerOne.status).thenReturn(READY)
 
-      when(playerTwo.place(aPlacement)).thenReturn(Some(aPlayer))
-
       val result = game.place(aPlacement).get
 
       result.playerOne shouldBe game.playerOne
       result.playerTwo should not be game.playerTwo
-      result.playerTwo shouldBe aPlayer
     }
 
-    it("should return none if both players placed their ships") {}
+    it("should return none if neither player is placing ships") {
+      when(playerOne.status).thenReturn(READY)
+      when(playerTwo.status).thenReturn(READY)
+
+      val result = game.place(aPlacement)
+
+      result shouldBe None
+    }
   }
 }
