@@ -1,4 +1,5 @@
 import Dependencies._
+import sbt.Keys.libraryDependencies
 
 lazy val root = project
   .enablePlugins(ScalafmtPlugin)
@@ -10,4 +11,4 @@ lazy val root = project
     libraryDependencies += scalaTest % Test,
     libraryDependencies += mockito % Test
   )
-val projectScalaVersion = "2.13.7"
+val projectScalaVersion = "2.13.8"

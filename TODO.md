@@ -1,5 +1,6 @@
 # TODO:
 
+- [ ] Player placing a ship
 - [ ] Shooting a player
 - [ ] Player status
 - [ ] Game setup (arranging pieces)
