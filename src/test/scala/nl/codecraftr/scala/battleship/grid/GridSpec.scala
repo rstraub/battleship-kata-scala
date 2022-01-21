@@ -3,6 +3,7 @@ package nl.codecraftr.scala.battleship.grid
 import nl.codecraftr.scala.battleship.Ship.destroyer
 import nl.codecraftr.scala.battleship.grid.Columns.A
 import nl.codecraftr.scala.battleship.grid.GridTdb.aGrid
+import nl.codecraftr.scala.battleship.grid.PlacementTdb.aPlacement
 import nl.codecraftr.scala.battleship.grid.Rows.{ONE, THREE, TWO}
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
@@ -60,6 +61,19 @@ class GridSpec extends AnyFunSpec with Matchers {
 
       result.hits should have size 1
       result.misses should have size 0
+    }
+  }
+
+  describe("ships") {
+    it("should return the ships placed on the grid") {
+      val result = aGrid.place(aPlacement).get.ships
+
+      result should have size 1
+      result should contain(aPlacement.ship)
+    }
+
+    it("should return empty set given no ships on the grid") {
+      aGrid.ships shouldBe empty
     }
   }
 }

@@ -1,5 +1,7 @@
 package nl.codecraftr.scala.battleship.grid
 
+import nl.codecraftr.scala.battleship.Ship
+
 case class Point(x: Int, y: Int)
 
 case class Grid(squares: Set[Square]) {
@@ -34,6 +36,11 @@ case class Grid(squares: Set[Square]) {
   def misses: Set[MissedSquare] = squares.collect { case s: MissedSquare => s }
 
   def hits: Set[HitSquare] = squares.collect { case s: HitSquare => s }
+
+  def ships: Set[Ship] = squares.collect {
+    case os: OccupiedSquare => os.ship
+    case hs: HitSquare      => hs.ship
+  }
 }
 
 object Grid {
