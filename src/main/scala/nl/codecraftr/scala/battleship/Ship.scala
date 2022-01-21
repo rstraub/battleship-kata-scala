@@ -1,11 +1,11 @@
 package nl.codecraftr.scala.battleship
 
-case class Ship(occupies: Int, hits: Int = 0) {
+final case class Ship(occupies: Int, hits: Int = 0) {
   def shoot(): Option[Ship] =
     if (hits < occupies) Some(copy(hits = hits + 1))
     else None
 
-  final def isSunk: Boolean = hits == occupies
+  def isSunk: Boolean = hits == occupies
 }
 
 object Ship {

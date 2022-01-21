@@ -4,9 +4,11 @@ import nl.codecraftr.scala.battleship.grid.{Grid, Placement}
 
 case class Player(grid: Grid) {
   def place(placement: Placement): Option[Player] =
-    grid.place(placement).map(g => copy(grid = g))
+    grid.place(placement).map(copy)
 
-  def ships: Set[Ship] = Set()
+  def allSunk: Boolean = ships.nonEmpty && ships.forall(_.isSunk)
+
+  private def ships = grid.ships
 }
 
 object Player {

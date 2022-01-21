@@ -1,5 +1,6 @@
 package nl.codecraftr.scala.battleship
 
+import nl.codecraftr.scala.battleship.ShipTdb.{aShip, aSunkShip}
 import nl.codecraftr.scala.battleship.grid.Grid
 import nl.codecraftr.scala.battleship.grid.GridTdb.aGridWithShip
 import nl.codecraftr.scala.battleship.grid.PlacementTdb.aPlacement
@@ -33,6 +34,26 @@ class PlayerSpec
       when(grid.place(aPlacement)).thenReturn(None)
 
       player.place(aPlacement) shouldBe None
+    }
+  }
+
+  describe("allSunk") {
+    it("should return true given all ships are sunk") {
+      when(grid.ships).thenReturn(Set(aSunkShip))
+
+      player.allSunk shouldBe true
+    }
+
+    it("should return false given a ship is alive") {
+      when(grid.ships).thenReturn(Set(aShip))
+
+      player.allSunk shouldBe false
+    }
+
+    it("should return false given no ships") {
+      when(grid.ships).thenReturn(Set())
+
+      player.allSunk shouldBe false
     }
   }
 }
