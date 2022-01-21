@@ -3,12 +3,6 @@ package nl.codecraftr.scala.battleship
 import nl.codecraftr.scala.battleship.Statuses.{PLACING, Status}
 import nl.codecraftr.scala.battleship.grid.{Coordinate, Grid, Placement}
 
-object Statuses extends Enumeration {
-  type Status = Value
-
-  val PLACING: Statuses.Value = Value
-}
-
 case class Player(grid: Grid) {
   def status: Status = PLACING
 

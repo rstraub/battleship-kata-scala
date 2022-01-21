@@ -1,7 +1,7 @@
 package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.PlayerTdb.aPlayer
-import nl.codecraftr.scala.battleship.Statuses.PLACING
+import nl.codecraftr.scala.battleship.Statuses.{PLACING, READY}
 import nl.codecraftr.scala.battleship.grid.PlacementTdb.aPlacement
 import org.mockito.Mockito.when
 import org.scalatest.BeforeAndAfter
@@ -39,7 +39,17 @@ class GameSpec
       result.playerOne shouldBe aPlayer
     }
 
-    it("should place ships on player two given player one is ready") {}
+    it("should place ships on player two given player one is ready") {
+      when(playerOne.status).thenReturn(READY)
+
+      when(playerTwo.place(aPlacement)).thenReturn(Some(aPlayer))
+
+      val result = game.place(aPlacement).get
+
+      result.playerOne shouldBe game.playerOne
+      result.playerTwo should not be game.playerTwo
+      result.playerTwo shouldBe aPlayer
+    }
 
     it("should return none if both players placed their ships") {}
   }

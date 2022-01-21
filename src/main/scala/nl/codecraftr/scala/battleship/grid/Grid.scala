@@ -2,8 +2,6 @@ package nl.codecraftr.scala.battleship.grid
 
 import nl.codecraftr.scala.battleship.Ship
 
-case class Point(x: Int, y: Int)
-
 case class Grid(squares: Set[Square]) {
   def place(placement: Placement): Option[Grid] = {
     val Placement(ship, coordinates) = placement
