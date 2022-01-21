@@ -6,8 +6,8 @@ lazy val root = project
   .settings(
     name := "Battleship Kata",
     version := "0.1.0-SNAPSHOT",
-
     scalaVersion := projectScalaVersion,
-    libraryDependencies += scalaTest % Test
+    libraryDependencies += scalaTest % Test,
+    libraryDependencies += mockito % Test
   )
 val projectScalaVersion = "2.13.7"
