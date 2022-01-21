@@ -24,7 +24,7 @@
 # Improvements
 
 - [ ] use booleans instead of type hierarchy on square
-- [ ] hide case class implementations to prevent creation of invalid invariants
-    - [ ] Grid
-    - [ ] Ship
+- [X] hide case class implementations to prevent creation of invalid invariants
+    - [X] Square
+    - [X] Ship
 - [X] use mocks to make test setup simpler

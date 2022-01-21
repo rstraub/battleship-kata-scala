@@ -6,12 +6,17 @@ import nl.codecraftr.scala.battleship.grid.Rows.Row
 
 sealed trait Square extends Coordinate {
   val ship: Option[Ship]
+  val shot: Boolean
 
   def place(ship: Ship): Option[Square]
 
   def shoot(): Option[Square]
 
+  def hit: Boolean = shot && isOccupied
+
   def isOccupied: Boolean = !isEmpty
+
+  def miss: Boolean = shot && isEmpty
 
   def isEmpty: Boolean = ship.isEmpty
 
@@ -26,7 +31,7 @@ object Square {
       override val column: Column,
       override val row: Row,
       override val ship: Option[Ship] = None,
-      private val shot: Boolean = false
+      override val shot: Boolean = false
   ) extends Square {
     def shoot(): Option[Square] =
       if (shot) None

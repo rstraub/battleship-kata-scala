@@ -52,28 +52,41 @@ class SquareSpec extends AnyFunSpec with Matchers {
   describe("shoot") {
     it("should return missed square given empty square") {
       val square = anEmptySquare
-      val result = square.shoot()
+      val result = square.shoot().get
 
-      //      result shouldBe anEmptySquare
+      result.miss shouldBe true
     }
 
     it("should return hit square given occupied square") {
       val square = anOccupiedSquare
-      val result = square.shoot()
+      val result = square.shoot().get
 
-      //      result shouldBe Some(SquareCons(square.column, square.row, square.ship))
+      result.hit shouldBe true
     }
 
     it("should return none given missed square") {
-      val result = aMissedSquare.shoot()
-
-      result shouldBe None
+      aMissedSquare.shoot() shouldBe None
     }
 
     it("should return none given a hit square") {
-      val result = aHitSquare.shoot()
+      aHitSquare.shoot() shouldBe None
+    }
+  }
 
-      result shouldBe None
+  describe("hit and miss") {
+    it("should return hit given shot and occupied") {
+      aHitSquare.hit shouldBe true
+      aHitSquare.miss shouldBe false
+    }
+
+    it("should return miss given shot and empty") {
+      aMissedSquare.hit shouldBe false
+      aMissedSquare.miss shouldBe true
+    }
+
+    it("should return false for hit and miss given unshot") {
+      anEmptySquare.hit shouldBe false
+      anEmptySquare.miss shouldBe false
     }
   }
 }

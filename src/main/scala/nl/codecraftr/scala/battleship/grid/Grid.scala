@@ -19,7 +19,7 @@ case class Grid(squares: Set[Square]) {
   private def findAll(coordinates: Set[Coordinate]): Set[Square] =
     coordinates.flatMap(findBy)
 
-  private def findBy(coordinate: Coordinate): Option[Square] =
+  def findBy(coordinate: Coordinate): Option[Square] =
     squares.find(_.equalTo(coordinate))
 
   def shoot(target: Coordinate): Option[Grid] = {
@@ -32,11 +32,11 @@ case class Grid(squares: Set[Square]) {
   private def replace(orig: Square, using: Square): Grid =
     replace(Set(orig), Set(using))
 
-  def misses: Set[Square] = Set()
+  def misses: Set[Square] = squares.filter(_.miss)
 
-  def hits: Set[Square] = Set()
+  def hits: Set[Square] = squares.filter(_.hit)
 
-  def ships: Set[Ship] = Set()
+  def ships: Set[Ship] = squares.flatMap(_.ship)
 }
 
 object Grid {
