@@ -1,9 +1,10 @@
 package nl.codecraftr.scala.battleship.grid
 
+case class Point(x: Int, y: Int)
+
 case class Grid(squares: Set[Square]) {
   def place(placement: Placement): Option[Grid] = {
-    val ship = placement.ship
-    val coordinates = placement.coordinates
+    val Placement(ship, coordinates) = placement
     val toReplace: Set[Square] = coordinates.flatMap(findBy)
     val newSquares: Set[Square] = toReplace.flatMap(_.place(ship))
     val updated: Set[Square] = squares -- toReplace ++ newSquares
