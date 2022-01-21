@@ -19,13 +19,18 @@ case class Grid(squares: Set[Square]) {
       findBy(target)
     val newSquare: Option[Square] = toReplace.flatMap(_.shoot())
     val both: Option[(Square, Square)] = toReplace.zip(newSquare)
-    val updated: Option[Set[Square]] =
-      both.map(both => squares - both._1 + both._2)
-    val newGrid = updated.map(s => copy(squares = s))
-    newGrid
+    both.map(both => replace(both._1, both._2))
+  }
+
+  private def replace(orig: Square, using: Square): Grid =
+    replace(Set(orig), Set(using))
+  private def replace(orig: Set[Square], using: Set[Square]): Grid = {
+    val updated = squares -- orig ++ using
+    copy(squares = updated)
   }
 
   def misses: Set[MissedSquare] = squares.collect { case s: MissedSquare => s }
+
   def hits: Set[HitSquare] = squares.collect { case s: HitSquare => s }
 }
 
