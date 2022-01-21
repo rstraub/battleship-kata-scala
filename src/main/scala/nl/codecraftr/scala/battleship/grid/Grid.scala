@@ -23,7 +23,7 @@ case class Grid(squares: Set[Square]) {
   private def findBy(coordinate: Coordinate): Option[Square] =
     squares.find(_.equalTo(coordinate))
 
-  def shoot(target: Target): Option[Grid] = {
+  def shoot(target: Coordinate): Option[Grid] = {
     val toReplace = findBy(target)
     val newSquare = toReplace.flatMap(_.shoot())
     val both = toReplace.zip(newSquare)

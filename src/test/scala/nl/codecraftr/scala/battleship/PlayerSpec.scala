@@ -1,9 +1,11 @@
 package nl.codecraftr.scala.battleship
 
 import nl.codecraftr.scala.battleship.ShipTdb.{aShip, aSunkShip}
-import nl.codecraftr.scala.battleship.grid.Grid
-import nl.codecraftr.scala.battleship.grid.GridTdb.aGridWithShip
+import nl.codecraftr.scala.battleship.grid.Columns.A
+import nl.codecraftr.scala.battleship.grid.GridTdb.{aGrid, aGridWithShip}
 import nl.codecraftr.scala.battleship.grid.PlacementTdb.aPlacement
+import nl.codecraftr.scala.battleship.grid.Rows.ONE
+import nl.codecraftr.scala.battleship.grid.{Grid, Target}
 import org.mockito.Mockito.when
 import org.scalatest.BeforeAndAfterEach
 import org.scalatest.funspec.AnyFunSpec
@@ -34,6 +36,24 @@ class PlayerSpec
       when(grid.place(aPlacement)).thenReturn(None)
 
       player.place(aPlacement) shouldBe None
+    }
+  }
+
+  describe("shoot") {
+    val target = Target(A, ONE)
+    it("should return player with updated grid given valid shot") {
+      when(grid.shoot(target)).thenReturn(Some(aGrid))
+
+      val result = player.shoot(target).get
+
+      result should not be player
+      result.grid shouldBe aGrid
+    }
+
+    it("should return none given an invalid shot") {
+      when(grid.shoot(target)).thenReturn(None)
+
+      player.shoot(target) shouldBe None
     }
   }
 
