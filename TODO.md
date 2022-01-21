@@ -7,8 +7,8 @@
     - [ ] Arranged
 - [ ] Game setup (arranging pieces)
 - [ ] Game turns, alternate between players
-- [ ] Announcing hit / miss
 - [ ] Announce game status (winner, draw, in progress)
+- [ ] Announcing hit / miss
 
 # Unhappy paths
 
