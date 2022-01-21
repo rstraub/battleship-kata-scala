@@ -33,5 +33,7 @@ class PlacementSpec extends AnyFlatSpec with Matchers {
     )
   }
 
-  it should "not be created given coordinates are not adjacent" in {}
+  it should "not be created given rows are not adjacent" in {}
+
+  it should "not be created given columns are not adjacent" in {}
 }
