@@ -1,15 +1,16 @@
 package nl.codecraftr.scala.battleship.grid
 
+import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import nl.codecraftr.scala.battleship.grid.ColumnsTdb.aColumn
 import nl.codecraftr.scala.battleship.grid.RowsTdb.aRow
+import nl.codecraftr.scala.battleship.grid.Square.emptySquare
 
 object SquareTdb {
-  def anEmptySquare: Square = SquareCons(aColumn, aRow)
+  def aMissedSquare: Square = anEmptySquare.shoot().get
 
-  def aMissedSquare: Square = SquareCons(aColumn, aRow)
+  def aHitSquare: Square = anOccupiedSquare.shoot().get
 
-  def anOccupiedSquare: Square =
-    SquareCons(aColumn, aRow)
+  def anOccupiedSquare: Square = anEmptySquare.place(aShip).get
 
-  def aHitSquare: Square = SquareCons(aColumn, aRow)
+  def anEmptySquare: Square = emptySquare(aColumn, aRow)
 }

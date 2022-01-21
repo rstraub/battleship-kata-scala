@@ -3,6 +3,7 @@ package nl.codecraftr.scala.battleship.grid
 import nl.codecraftr.scala.battleship.ShipTdb.aShip
 import nl.codecraftr.scala.battleship.grid.Columns.A
 import nl.codecraftr.scala.battleship.grid.Rows.ONE
+import nl.codecraftr.scala.battleship.grid.Square.emptySquare
 import nl.codecraftr.scala.battleship.grid.SquareTdb.{
   aHitSquare,
   aMissedSquare,
@@ -15,16 +16,18 @@ import org.scalatest.matchers.should.Matchers
 class SquareSpec extends AnyFunSpec with Matchers {
   describe("toString") {
     it("should return readable representation") {
-      SquareCons(A, ONE).toString shouldBe "A1"
+      emptySquare(A, ONE).toString shouldBe "A1"
     }
   }
 
   describe("place") {
     it("should return occupied square given empty square") {
       val square = anEmptySquare
-      val result = square.place(aShip)
+      val result = square.place(aShip).get
 
-      result shouldBe Some(SquareCons(square.column, square.row, Some(aShip)))
+      result.ship shouldBe Some(aShip)
+      result.column shouldBe square.column
+      result.row shouldBe square.row
     }
 
     it("should return none given an occupied square") {
@@ -51,14 +54,14 @@ class SquareSpec extends AnyFunSpec with Matchers {
       val square = anEmptySquare
       val result = square.shoot()
 
-      result shouldBe Some(SquareCons(square.column, square.row))
+      //      result shouldBe anEmptySquare
     }
 
     it("should return hit square given occupied square") {
       val square = anOccupiedSquare
       val result = square.shoot()
 
-      result shouldBe Some(SquareCons(square.column, square.row, square.ship))
+      //      result shouldBe Some(SquareCons(square.column, square.row, square.ship))
     }
 
     it("should return none given missed square") {

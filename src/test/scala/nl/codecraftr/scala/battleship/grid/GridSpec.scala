@@ -5,6 +5,7 @@ import nl.codecraftr.scala.battleship.grid.Columns.A
 import nl.codecraftr.scala.battleship.grid.GridTdb.aGrid
 import nl.codecraftr.scala.battleship.grid.PlacementTdb.aPlacement
 import nl.codecraftr.scala.battleship.grid.Rows.{ONE, THREE, TWO}
+import nl.codecraftr.scala.battleship.grid.Square.emptySquare
 import org.scalatest.funspec.AnyFunSpec
 import org.scalatest.matchers.should.Matchers
 
@@ -34,8 +35,8 @@ class GridSpec extends AnyFunSpec with Matchers {
           .place(placement)
           .get
 
-      result.squares.contains(SquareCons(A, ONE, Some(ship))) shouldBe true
-      result.squares.contains(SquareCons(A, TWO, Some(ship))) shouldBe true
+      result.squares.contains(emptySquare(A, ONE)) shouldBe true
+      result.squares.contains(emptySquare(A, TWO)) shouldBe true
     }
 
     // TODO
