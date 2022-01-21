@@ -15,7 +15,7 @@ import org.scalatest.matchers.should.Matchers
 class SquareSpec extends AnyFunSpec with Matchers {
   describe("toString") {
     it("should return readable representation") {
-      EmptySquare(A, ONE).toString shouldBe "A1"
+      SquareCons(A, ONE).toString shouldBe "A1"
     }
   }
 
@@ -24,7 +24,7 @@ class SquareSpec extends AnyFunSpec with Matchers {
       val square = anEmptySquare
       val result = square.place(aShip)
 
-      result shouldBe Some(OccupiedSquare(square.column, square.row, aShip))
+      result shouldBe Some(SquareCons(square.column, square.row, Some(aShip)))
     }
 
     it("should return none given an occupied square") {
@@ -51,14 +51,14 @@ class SquareSpec extends AnyFunSpec with Matchers {
       val square = anEmptySquare
       val result = square.shoot()
 
-      result shouldBe Some(MissedSquare(square.column, square.row))
+      result shouldBe Some(SquareCons(square.column, square.row))
     }
 
     it("should return hit square given occupied square") {
       val square = anOccupiedSquare
       val result = square.shoot()
 
-      result shouldBe Some(HitSquare(square.column, square.row, square.ship))
+      result shouldBe Some(SquareCons(square.column, square.row, square.ship))
     }
 
     it("should return none given missed square") {

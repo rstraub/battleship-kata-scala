@@ -34,8 +34,8 @@ class GridSpec extends AnyFunSpec with Matchers {
           .place(placement)
           .get
 
-      result.squares.contains(OccupiedSquare(A, ONE, ship)) shouldBe true
-      result.squares.contains(OccupiedSquare(A, TWO, ship)) shouldBe true
+      result.squares.contains(SquareCons(A, ONE, Some(ship))) shouldBe true
+      result.squares.contains(SquareCons(A, TWO, Some(ship))) shouldBe true
     }
 
     // TODO

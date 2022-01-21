@@ -31,14 +31,10 @@ case class Grid(squares: Set[Square]) {
   private def replace(orig: Square, using: Square): Grid =
     replace(Set(orig), Set(using))
 
-  def misses: Set[MissedSquare] = squares.collect { case s: MissedSquare => s }
+  def misses: Set[Square] = Set()
+  def hits: Set[Square] = Set()
 
-  def hits: Set[HitSquare] = squares.collect { case s: HitSquare => s }
-
-  def ships: Set[Ship] = squares.collect {
-    case os: OccupiedSquare => os.ship
-    case hs: HitSquare      => hs.ship
-  }
+  def ships: Set[Ship] = Set()
 }
 
 object Grid {
@@ -47,5 +43,5 @@ object Grid {
   private def emptySquares() = for {
     c <- Columns.values.toList
     r <- Rows.values.toList
-  } yield EmptySquare(c, r)
+  } yield SquareCons(c, r)
 }
