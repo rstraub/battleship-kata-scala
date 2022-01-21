@@ -15,6 +15,13 @@ class PlacementSpec extends AnyFlatSpec with Matchers {
     result.coordinates shouldBe coordinates
   }
 
+  it should "be created given variadic coordinates" in {
+    val result = Placement(destroyer(), Target(A, ONE), Target(B, TWO))
+
+    result.ship shouldBe destroyer()
+    result.coordinates shouldBe Set(Target(A, ONE), Target(B, TWO))
+  }
+
   it should "not be created given too many coordinates" in {
     val coordinates: Set[Coordinate] =
       Set(Target(A, ONE), Target(B, TWO), Target(C, TWO))

@@ -1,7 +1,7 @@
 # TODO:
 
-- [X] Player status
-- [X] Shooting a player
+- [ ] Shooting a player
+- [ ] Player status
 - [ ] Game setup (arranging pieces)
 - [ ] Game turns, alternate between players
 - [ ] Announcing hit / miss

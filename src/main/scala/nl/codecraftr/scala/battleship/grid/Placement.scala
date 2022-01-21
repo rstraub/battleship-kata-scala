@@ -7,3 +7,8 @@ case class Placement(ship: Ship, coordinates: Set[Coordinate]) {
 
   if (!isValid) throw new IllegalArgumentException("Invalid coordinates")
 }
+
+object Placement {
+  def apply(ship: Ship, coordinates: Coordinate*): Placement =
+    Placement(ship, coordinates.toSet)
+}
