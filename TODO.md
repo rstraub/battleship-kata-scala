@@ -5,7 +5,7 @@
 - [ ] Player status
     - [ ] Placing
     - [ ] Ready
-    - [ ] Dead
+    - [X] Dead
 - [ ] Game setup (arranging pieces)
 - [ ] Game turns, alternate between players
 - [ ] Announce game status (winner, draw, in progress)
